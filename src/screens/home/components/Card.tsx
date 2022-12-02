@@ -18,8 +18,19 @@ interface BarProps {
 }
 
 const Bar = (props: BarProps) => (
-  <View style={styles.barContainer}>
-    <View style={[styles.bar, {height: props.value + '%'}]} />
+  <View style={styles.barColumn}>
+    <View style={styles.barContainer}>
+      <View
+        style={[
+          styles.bar,
+          {
+            height: props.value + '%',
+            backgroundColor: props.isCurrent ? PINK : GOLD,
+          },
+        ]}
+      />
+      <Text style={styles.barText}>Tu</Text>
+    </View>
   </View>
 );
 
@@ -51,7 +62,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   mainSection: {
-    flex: 0.6,
+    // flex: 0.6,
   },
   titleSection: {
     flexDirection: 'row',
@@ -74,16 +85,25 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     height: 138,
     justifyContent: 'space-around',
-    alignItems: 'flex-end',
     marginTop: 8,
   },
-  barContainer: {
+  barColumn: {
     alignItems: 'center',
+    marginEnd: 8,
+  },
+  barContainer: {
+    justifyContent: 'flex-end',
+    alignItems: 'center',
+    height: 100,
   },
   bar: {
     borderRadius: 4,
     width: 6,
-    backgroundColor: GOLD,
+  },
+  barText: {
+    fontSize: 12,
+    lineHeight: 20,
+    fontWeight: '500',
   },
   findOutWhyText: {
     fontSize: 16,
