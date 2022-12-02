@@ -8,6 +8,8 @@ import WeatherIcon from './components/WeatherIcon';
 
 const temperature = 24;
 const name = 'Derek';
+const weekData = [64, 47, 55, 62, 60, 64, 62];
+const labels = ['We', 'Th', 'Fr', 'Sa', 'Su', 'Mo', 'Tu'];
 
 const HomeScreen = () => (
   <View style={CONTAINER}>
@@ -26,10 +28,7 @@ const HomeScreen = () => (
             <WeatherIcon />
           </View>
         </View>
-        <Card
-          weekData={[64, 47, 55, 62, 60, 64, 62]}
-          labels={['We', 'Th', 'Fr', 'Sa', 'Su', 'Mo', 'Tu']}
-        />
+        <Card weekData={weekData} labels={labels} />
       </SafeAreaView>
     </View>
   </View>
