@@ -1,15 +1,15 @@
 import React from 'react';
-import {View, StyleSheet, Text} from 'react-native';
+import {View, StyleSheet, Text, SafeAreaView} from 'react-native';
 import {CONTAINER} from '../../utils/Styles';
 import {HEREWORKS} from '../../utils/Strings';
 import Card from './components/Card';
 import {CEMENT} from '../../utils/Colors';
 
 const HomeScreen = () => (
-  <View style={CONTAINER}>
+  <SafeAreaView style={CONTAINER}>
     <Text style={styles.title}>{HEREWORKS}</Text>
     <Card />
-  </View>
+  </SafeAreaView>
 );
 
 const styles = StyleSheet.create({
