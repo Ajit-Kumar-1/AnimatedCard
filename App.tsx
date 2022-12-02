@@ -21,6 +21,7 @@ const App = () => (
         tabBarActiveTintColor: GOLD,
         tabBarInactiveTintColor: LIGHT_GRAY,
         tabBarStyle: {
+          paddingTop: 6,
           backgroundColor: CEMENT,
         },
         tabBarLabelStyle: {
