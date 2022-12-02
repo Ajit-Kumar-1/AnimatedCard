@@ -11,6 +11,18 @@ interface CardProps {
   weekData: number[];
 }
 
+interface BarProps {
+  value: number;
+  text: string;
+  isCurrent: boolean;
+}
+
+const Bar = (props: BarProps) => (
+  <View style={styles.barContainer}>
+    <View style={[styles.bar, {height: props.value + '%'}]} />
+  </View>
+);
+
 const Card = (props: CardProps) => (
   <View style={styles.container}>
     <View style={styles.mainSection}>
@@ -19,8 +31,8 @@ const Card = (props: CardProps) => (
         <Text style={styles.liveText}>{LIVE_UPPERCASE}</Text>
       </View>
       <View style={styles.barChartSection}>
-        {props.weekData.map(item => (
-          <View style={[styles.bar, {height: item + '%'}]} />
+        {props.weekData.map((item, index) => (
+          <Bar value={item} text={item + ''} isCurrent={index === 6} />
         ))}
       </View>
       <TouchableOpacity style={styles.titleSection}>
@@ -63,6 +75,10 @@ const styles = StyleSheet.create({
     height: 138,
     justifyContent: 'space-around',
     alignItems: 'flex-end',
+    marginTop: 8,
+  },
+  barContainer: {
+    alignItems: 'center',
   },
   bar: {
     borderRadius: 4,
