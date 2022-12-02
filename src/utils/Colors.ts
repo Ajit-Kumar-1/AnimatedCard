@@ -1,3 +1,4 @@
+export const ASH = '#C4C4C4';
 export const BLACK = '#000000';
 export const CEMENT = '#323E48';
 export const GOLD = '#F5B335';

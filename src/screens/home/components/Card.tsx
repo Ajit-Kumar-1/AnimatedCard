@@ -1,6 +1,13 @@
 import React from 'react';
 import {View, StyleSheet, Text, TouchableOpacity} from 'react-native';
-import {BLACK, CEMENT, GOLD, LIGHT_BLUE, PINK} from '../../../utils/Colors';
+import {
+  ASH,
+  BLACK,
+  CEMENT,
+  GOLD,
+  LIGHT_BLUE,
+  PINK,
+} from '../../../utils/Colors';
 import {
   FIND_OUT_WHY,
   HAPPY_SCORE,
@@ -36,6 +43,8 @@ const Bar = (props: BarProps) => (
   </View>
 );
 
+const PieChart = (value: number) => <View style={styles.pieChartBackground} />;
+
 const Card = (props: CardProps) => (
   <View style={styles.container}>
     <View style={styles.mainSection}>
@@ -56,6 +65,7 @@ const Card = (props: CardProps) => (
         <Text style={styles.findOutWhyText}>{FIND_OUT_WHY}</Text>
       </TouchableOpacity>
     </View>
+    <PieChart />
   </View>
 );
 
@@ -127,6 +137,14 @@ const styles = StyleSheet.create({
     color: LIGHT_BLUE,
     borderBottomColor: LIGHT_BLUE,
     borderBottomWidth: 1,
+  },
+  pieChartBackground: {
+    height: 98,
+    width: 98,
+    borderRadius: 49,
+    borderWidth: 12,
+    borderColor: ASH,
+    opacity: 0.3,
   },
 });
 
