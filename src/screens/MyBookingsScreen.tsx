@@ -1,13 +1,7 @@
 import React from 'react';
-import {View, StyleSheet} from 'react-native';
+import {View} from 'react-native';
+import {CONTAINER} from '../utils/Styles';
 
-const MyBookingsScreen = () => <View style={styles.container} />;
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: 'pink',
-  },
-});
+const MyBookingsScreen = () => <View style={CONTAINER} />;
 
 export default MyBookingsScreen;
