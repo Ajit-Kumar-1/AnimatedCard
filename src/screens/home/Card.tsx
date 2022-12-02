@@ -1,6 +1,14 @@
 import React from 'react';
 import {View, StyleSheet, Text, TouchableOpacity} from 'react-native';
-import {ASH, BLACK, CEMENT, GOLD, LIGHT_BLUE, PINK} from '../../utils/Colors';
+import {
+  ASH,
+  BLACK,
+  CEMENT,
+  DARK_BLUE,
+  GOLD,
+  LIGHT_BLUE,
+  PINK,
+} from '../../utils/Colors';
 import {FIND_OUT_WHY, HAPPY_SCORE, LIVE_UPPERCASE} from '../../utils/Strings';
 
 interface CardProps {
@@ -12,6 +20,10 @@ interface BarProps {
   value: number;
   text: string;
   isCurrent: boolean;
+}
+
+interface PieChartProps {
+  value: number;
 }
 
 const Bar = (props: BarProps) => (
@@ -32,7 +44,11 @@ const Bar = (props: BarProps) => (
   </View>
 );
 
-const PieChart = (value: number) => <View style={styles.pieChartBackground} />;
+const PieChart = (props: PieChartProps) => (
+  <View style={styles.pieChartBackground}>
+    <Text style={styles.pieChartText}>{props.value.toString()}</Text>
+  </View>
+);
 
 const Card = (props: CardProps) => (
   <View style={styles.container}>
@@ -54,7 +70,7 @@ const Card = (props: CardProps) => (
         <Text style={styles.findOutWhyText}>{FIND_OUT_WHY}</Text>
       </TouchableOpacity>
     </View>
-    <PieChart />
+    <PieChart value={89} />
   </View>
 );
 
@@ -128,12 +144,19 @@ const styles = StyleSheet.create({
     borderBottomWidth: 1,
   },
   pieChartBackground: {
-    height: 98,
-    width: 98,
-    borderRadius: 49,
+    height: 104,
+    width: 104,
+    borderRadius: 51,
     borderWidth: 12,
     borderColor: ASH,
-    opacity: 0.3,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  pieChartText: {
+    fontSize: 34,
+    lineHeight: 42,
+    fontWeight: '900',
+    color: DARK_BLUE,
   },
 });
 
