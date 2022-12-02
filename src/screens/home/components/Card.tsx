@@ -1,6 +1,6 @@
 import React from 'react';
 import {View, StyleSheet, Text, TouchableOpacity} from 'react-native';
-import {CEMENT, GOLD, LIGHT_BLUE, PINK} from '../../../utils/Colors';
+import {BLACK, CEMENT, GOLD, LIGHT_BLUE, PINK} from '../../../utils/Colors';
 import {
   FIND_OUT_WHY,
   HAPPY_SCORE,
@@ -9,6 +9,7 @@ import {
 
 interface CardProps {
   weekData: number[];
+  labels: string[];
 }
 
 interface BarProps {
@@ -29,7 +30,7 @@ const Bar = (props: BarProps) => (
           },
         ]}
       />
-      <Text style={styles.barText}>Tu</Text>
+      <Text style={styles.barText}>{props.text}</Text>
     </View>
     {props.isCurrent ? <View style={styles.currentBarMarker} /> : null}
   </View>
@@ -44,7 +45,11 @@ const Card = (props: CardProps) => (
       </View>
       <View style={styles.barChartSection}>
         {props.weekData.map((item, index) => (
-          <Bar value={item} text={item + ''} isCurrent={index === 6} />
+          <Bar
+            value={item}
+            text={props.labels[index]}
+            isCurrent={index === 6}
+          />
         ))}
       </View>
       <TouchableOpacity style={styles.titleSection}>
@@ -107,6 +112,7 @@ const styles = StyleSheet.create({
     fontSize: 12,
     lineHeight: 20,
     fontWeight: '500',
+    color: BLACK,
   },
   currentBarMarker: {
     width: 4,

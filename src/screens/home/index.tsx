@@ -16,7 +16,10 @@ const HomeScreen = () => (
             {HERE_ARE_YOUR_LATEST_UPDATES}
           </Text>
         </View>
-        <Card weekData={[64, 47, 55, 62, 60, 64, 62]} />
+        <Card
+          weekData={[64, 47, 55, 62, 60, 64, 62]}
+          labels={['We', 'Th', 'Fr', 'Sa', 'Su', 'Mo', 'Tu']}
+        />
       </SafeAreaView>
     </View>
   </View>
