@@ -1,10 +1,10 @@
 import * as React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
-import HomeScreen from './src/HomeScreen';
-import ProfileScreen from './src/ProfileScreen';
-import MyBookingsScreen from './src/MyBookingsScreen';
-import BookingScreen from './src/BookingScreen';
+import HomeScreen from './src/screens/HomeScreen';
+import ProfileScreen from './src/screens/ProfileScreen';
+import MyBookingsScreen from './src/screens/MyBookingsScreen';
+import BookingScreen from './src/screens/BookingScreen';
 import {GOLD, LIGHT_GRAY, CEMENT} from './src/utils/Colors';
 import {HOME, BOOKING, MY_BOOKINGS, PROFILE} from './src/utils/Strings';
 
