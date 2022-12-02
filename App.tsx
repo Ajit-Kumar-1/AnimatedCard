@@ -33,21 +33,27 @@ const App = () => (
         name={HOME}
         component={HomeScreen}
         options={{
-          tabBarIcon: () => <HomeIcon />,
+          tabBarIcon: ({focused}) => (
+            <HomeIcon color={focused ? GOLD : LIGHT_GRAY} />
+          ),
         }}
       />
       <Tab.Screen
         name={BOOKING}
         component={BookingScreen}
         options={{
-          tabBarIcon: () => <BookingIcon />,
+          tabBarIcon: ({focused}) => (
+            <BookingIcon color={focused ? GOLD : LIGHT_GRAY} />
+          ),
         }}
       />
       <Tab.Screen
         name={MY_BOOKINGS}
         component={MyBookingsScreen}
         options={{
-          tabBarIcon: () => <MyBookingsIcon />,
+          tabBarIcon: ({focused}) => (
+            <MyBookingsIcon color={focused ? GOLD : LIGHT_GRAY} />
+          ),
         }}
       />
       <Tab.Screen
