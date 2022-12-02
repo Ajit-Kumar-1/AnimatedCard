@@ -1,18 +1,7 @@
 import React from 'react';
 import {View, StyleSheet, Text, TouchableOpacity} from 'react-native';
-import {
-  ASH,
-  BLACK,
-  CEMENT,
-  GOLD,
-  LIGHT_BLUE,
-  PINK,
-} from '../../../../utils/Colors';
-import {
-  FIND_OUT_WHY,
-  HAPPY_SCORE,
-  LIVE_UPPERCASE,
-} from '../../../../utils/Strings';
+import {ASH, BLACK, CEMENT, GOLD, LIGHT_BLUE, PINK} from '../../utils/Colors';
+import {FIND_OUT_WHY, HAPPY_SCORE, LIVE_UPPERCASE} from '../../utils/Strings';
 
 interface CardProps {
   weekData: number[];

@@ -2,7 +2,7 @@ import React from 'react';
 import {View, StyleSheet, Text, SafeAreaView} from 'react-native';
 import {CONTAINER} from '../../utils/Styles';
 import {HEREWORKS, HERE_ARE_YOUR_LATEST_UPDATES} from '../../utils/Strings';
-import Card from './components/card/Card';
+import Card from './Card';
 import {CEMENT, WHITE} from '../../utils/Colors';
 
 const HomeScreen = () => (
