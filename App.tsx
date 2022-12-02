@@ -34,9 +34,27 @@ const App = () => (
           tabBarIcon: () => <HomeIcon />,
         }}
       />
-      <Tab.Screen name={BOOKING} component={BookingScreen} />
-      <Tab.Screen name={MY_BOOKINGS} component={MyBookingsScreen} />
-      <Tab.Screen name={PROFILE} component={ProfileScreen} />
+      <Tab.Screen
+        name={BOOKING}
+        component={BookingScreen}
+        options={{
+          tabBarIcon: () => <HomeIcon />,
+        }}
+      />
+      <Tab.Screen
+        name={MY_BOOKINGS}
+        component={MyBookingsScreen}
+        options={{
+          tabBarIcon: () => <HomeIcon />,
+        }}
+      />
+      <Tab.Screen
+        name={PROFILE}
+        component={ProfileScreen}
+        options={{
+          tabBarIcon: () => <HomeIcon />,
+        }}
+      />
     </Tab.Navigator>
   </NavigationContainer>
 );
