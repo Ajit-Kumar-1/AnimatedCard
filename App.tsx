@@ -20,6 +20,11 @@ const App = () => (
         tabBarStyle: {
           backgroundColor: CEMENT,
         },
+        tabBarLabelStyle: {
+          fontSize: 12,
+          lineHeight: 20,
+          fontWeight: '400',
+        },
       }}>
       <Tab.Screen name={HOME} component={HomeScreen} />
       <Tab.Screen name={BOOKING} component={BookingScreen} />
