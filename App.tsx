@@ -7,6 +7,7 @@ import MyBookingsScreen from './src/screens/my_bookings';
 import BookingScreen from './src/screens/booking';
 import {GOLD, LIGHT_GRAY, CEMENT} from './src/utils/Colors';
 import {HOME, BOOKING, MY_BOOKINGS, PROFILE} from './src/utils/Strings';
+import HomeIcon from './src/icons/home.svg';
 
 const Tab = createBottomTabNavigator();
 
@@ -26,7 +27,13 @@ const App = () => (
           fontWeight: '400',
         },
       }}>
-      <Tab.Screen name={HOME} component={HomeScreen} />
+      <Tab.Screen
+        name={HOME}
+        component={HomeScreen}
+        options={{
+          tabBarIcon: () => <HomeIcon />,
+        }}
+      />
       <Tab.Screen name={BOOKING} component={BookingScreen} />
       <Tab.Screen name={MY_BOOKINGS} component={MyBookingsScreen} />
       <Tab.Screen name={PROFILE} component={ProfileScreen} />
