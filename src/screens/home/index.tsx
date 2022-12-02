@@ -22,7 +22,7 @@ const HomeScreen = () => (
             </Text>
           </View>
           <View style={styles.weatherSection}>
-            <Cloud />
+            <Cloud width={18} height={11} />
             <Text style={styles.temperatureText}>{`${temperature}°`}</Text>
           </View>
         </View>
