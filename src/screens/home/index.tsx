@@ -3,7 +3,7 @@ import {View, StyleSheet, Text, SafeAreaView} from 'react-native';
 import {CONTAINER} from '../../utils/Styles';
 import {HEREWORKS, HERE_ARE_YOUR_LATEST_UPDATES} from '../../utils/Strings';
 import Card from './Card';
-import {CEMENT, WHITE} from '../../utils/Colors';
+import {CEMENT, SHADOW, WHITE} from '../../utils/Colors';
 import WeatherIcon from './WeatherIcon';
 
 const temperature = 24;
@@ -52,6 +52,9 @@ const styles = StyleSheet.create({
     marginHorizontal: 24,
     flexDirection: 'row',
     justifyContent: 'space-between',
+    shadowColor: SHADOW,
+    shadowOffset: {width: 0, height: 4},
+    shadowRadius: 8,
   },
   greeting: {
     fontSize: 22,
