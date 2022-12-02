@@ -60,6 +60,7 @@ const Card = (props: CardProps) => (
       <View style={styles.barChartSection}>
         {props.weekData.map((item, index) => (
           <Bar
+            key={`bar_${index}`}
             value={item}
             text={props.labels[index]}
             isCurrent={index === 6}
