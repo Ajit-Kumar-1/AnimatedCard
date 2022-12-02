@@ -4,7 +4,7 @@ import {
     StyleSheet
 } from 'react-native';
 
-const HomeScreen = () => <View style={styles.container} />
+const MyBookingsScreen = () => <View style={styles.container} />
 
 const styles = StyleSheet.create({
     container: {
@@ -13,4 +13,4 @@ const styles = StyleSheet.create({
     }
 })
 
-export default HomeScreen
+export default MyBookingsScreen
