@@ -1,4 +1,5 @@
 export const BOOKING = 'Booking';
+export const FIND_OUT_WHY = 'Find out why';
 export const HAPPY_SCORE = 'Happy score';
 export const HEREWORKS = 'Hereworks';
 export const HOME = 'Home';

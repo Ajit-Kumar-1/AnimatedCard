@@ -1,7 +1,11 @@
 import React from 'react';
-import {View, StyleSheet, Text} from 'react-native';
-import {CEMENT, PINK} from '../../../utils/Colors';
-import {HAPPY_SCORE, LIVE_UPPERCASE} from '../../../utils/Strings';
+import {View, StyleSheet, Text, TouchableOpacity} from 'react-native';
+import {CEMENT, LIGHT_BLUE, PINK} from '../../../utils/Colors';
+import {
+  FIND_OUT_WHY,
+  HAPPY_SCORE,
+  LIVE_UPPERCASE,
+} from '../../../utils/Strings';
 
 const Card = () => (
   <View style={styles.container}>
@@ -10,6 +14,9 @@ const Card = () => (
         <Text style={styles.title}>{HAPPY_SCORE}</Text>
         <Text style={styles.liveText}>{LIVE_UPPERCASE}</Text>
       </View>
+      <TouchableOpacity style={styles.titleSection}>
+        <Text style={styles.findOutWhyText}>{FIND_OUT_WHY}</Text>
+      </TouchableOpacity>
     </View>
   </View>
 );
@@ -39,6 +46,14 @@ const styles = StyleSheet.create({
     fontWeight: '500',
     color: PINK,
     marginStart: 5,
+  },
+  findOutWhyText: {
+    fontSize: 16,
+    lineHeight: 24,
+    fontWeight: '400',
+    color: LIGHT_BLUE,
+    borderBottomColor: LIGHT_BLUE,
+    borderBottomWidth: 1,
   },
 });
 
