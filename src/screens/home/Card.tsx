@@ -52,7 +52,7 @@ const PieChart = (props: PieChartProps) => (
 
 const Card = (props: CardProps) => (
   <View style={styles.container}>
-    <View style={styles.mainSection}>
+    <View>
       <View style={styles.titleSection}>
         <Text style={styles.title}>{HAPPY_SCORE}</Text>
         <Text style={styles.liveText}>{LIVE_UPPERCASE}</Text>
@@ -81,9 +81,7 @@ const styles = StyleSheet.create({
     paddingVertical: 16,
     flexDirection: 'row',
     alignItems: 'center',
-  },
-  mainSection: {
-    // flex: 0.6,
+    justifyContent: 'space-between',
   },
   titleSection: {
     flexDirection: 'row',
