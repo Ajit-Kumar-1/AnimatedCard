@@ -66,7 +66,9 @@ const styles = StyleSheet.create({
     marginTop: 4,
   },
   weatherSection: {
+    flexDirection: 'row',
     justifyContent: 'flex-end',
+    alignSelf: 'flex-end',
   },
   temperatureText: {
     fontSize: 16,

@@ -14,6 +14,7 @@ const WeatherIcon = () => (
 const styles = StyleSheet.create({
   container: {
     width: 19,
+    bottom: 4,
   },
   sun: {
     alignSelf: 'flex-end',
