@@ -2,9 +2,9 @@ import React from 'react';
 import {View, StyleSheet, Text, SafeAreaView} from 'react-native';
 import {CONTAINER} from '../../utils/Styles';
 import {HEREWORKS, HERE_ARE_YOUR_LATEST_UPDATES} from '../../utils/Strings';
-import Card from './Card';
+import Card from './components/Card';
 import {CEMENT, SHADOW, WHITE} from '../../utils/Colors';
-import WeatherIcon from './WeatherIcon';
+import WeatherIcon from './components/WeatherIcon';
 
 const temperature = 24;
 const name = 'Derek';

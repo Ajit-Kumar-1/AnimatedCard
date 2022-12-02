@@ -8,8 +8,12 @@ import {
   GOLD,
   LIGHT_BLUE,
   PINK,
-} from '../../utils/Colors';
-import {FIND_OUT_WHY, HAPPY_SCORE, LIVE_UPPERCASE} from '../../utils/Strings';
+} from '../../../utils/Colors';
+import {
+  FIND_OUT_WHY,
+  HAPPY_SCORE,
+  LIVE_UPPERCASE,
+} from '../../../utils/Strings';
 
 interface CardProps {
   weekData: number[];

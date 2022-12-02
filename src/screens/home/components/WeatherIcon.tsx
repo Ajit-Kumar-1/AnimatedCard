@@ -1,8 +1,8 @@
 import React from 'react';
 import {View, StyleSheet} from 'react-native';
-import Sun from '../../icons/sunBg.svg';
-import Cloud from '../../icons/cloudBase.svg';
-import {CEMENT} from '../../utils/Colors';
+import Sun from '../../../icons/sunBg.svg';
+import Cloud from '../../../icons/cloudBase.svg';
+import {CEMENT} from '../../../utils/Colors';
 
 const WeatherIcon = () => (
   <View style={styles.container}>
