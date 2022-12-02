@@ -5,16 +5,24 @@ import {HEREWORKS, HERE_ARE_YOUR_LATEST_UPDATES} from '../../utils/Strings';
 import Card from './Card';
 import {CEMENT, WHITE} from '../../utils/Colors';
 
+const temperature = 24;
+const name = 'Derek';
+
 const HomeScreen = () => (
   <View style={CONTAINER}>
     <View style={styles.mainSection}>
       <SafeAreaView>
         <Text style={styles.title}>{HEREWORKS}</Text>
         <View style={styles.welcomeSection}>
-          <Text style={styles.greeting}>Hi Derek 👋</Text>
-          <Text style={styles.latestUpdatesText}>
-            {HERE_ARE_YOUR_LATEST_UPDATES}
-          </Text>
+          <View>
+            <Text style={styles.greeting}>{`Hi ${name} 👋`}</Text>
+            <Text style={styles.latestUpdatesText}>
+              {HERE_ARE_YOUR_LATEST_UPDATES}
+            </Text>
+          </View>
+          <View style={styles.weatherSection}>
+            <Text style={styles.temperatureText}>{`${temperature}°`}</Text>
+          </View>
         </View>
         <Card
           weekData={[64, 47, 55, 62, 60, 64, 62]}
@@ -40,6 +48,8 @@ const styles = StyleSheet.create({
   },
   welcomeSection: {
     marginHorizontal: 24,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
   },
   greeting: {
     fontSize: 22,
@@ -52,6 +62,15 @@ const styles = StyleSheet.create({
     lineHeight: 24,
     fontWeight: '400',
     marginTop: 4,
+  },
+  weatherSection: {
+    justifyContent: 'flex-end',
+  },
+  temperatureText: {
+    fontSize: 16,
+    lineHeight: 24,
+    fontWeight: '900',
+    color: CEMENT,
   },
 });
 
