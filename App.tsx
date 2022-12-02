@@ -1,4 +1,5 @@
 import * as React from 'react';
+import {View, StyleSheet} from 'react-native';
 import {NavigationContainer} from '@react-navigation/native';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import HomeScreen from './src/screens/home';
@@ -10,6 +11,8 @@ import {HOME, BOOKING, MY_BOOKINGS, PROFILE} from './src/utils/Strings';
 import HomeIcon from './src/icons/home.svg';
 import MyBookingsIcon from './src/icons/my_bookings.svg';
 import BookingIcon from './src/icons/booking.svg';
+import ProfileIconTopHalf from './src/icons/profile_1.svg';
+import ProfileIconBottomHalf from './src/icons/profile_2.svg';
 
 const Tab = createBottomTabNavigator();
 
@@ -61,11 +64,22 @@ const App = () => (
         name={PROFILE}
         component={ProfileScreen}
         options={{
-          tabBarIcon: () => <HomeIcon />,
+          tabBarIcon: ({focused}) => (
+            <View style={styles.profileIcon}>
+              <ProfileIconTopHalf color={focused ? GOLD : LIGHT_GRAY} />
+              <ProfileIconBottomHalf color={focused ? GOLD : LIGHT_GRAY} />
+            </View>
+          ),
         }}
       />
     </Tab.Navigator>
   </NavigationContainer>
 );
+
+const styles = StyleSheet.create({
+  profileIcon: {
+    alignItems: 'center',
+  },
+});
 
 export default App;
