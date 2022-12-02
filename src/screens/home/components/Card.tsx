@@ -14,6 +14,7 @@ import {
   HAPPY_SCORE,
   LIVE_UPPERCASE,
 } from '../../../utils/Strings';
+import ArrowIcon from './ArrowIcon';
 
 interface CardProps {
   weekData: number[];
@@ -73,6 +74,7 @@ const Card = (props: CardProps) => (
       </View>
       <TouchableOpacity style={styles.titleSection}>
         <Text style={styles.findOutWhyText}>{FIND_OUT_WHY}</Text>
+        <ArrowIcon />
       </TouchableOpacity>
     </View>
     <PieChart value={89} />
