@@ -1,18 +1,27 @@
 import React from 'react';
 import {View, StyleSheet, Text, TouchableOpacity} from 'react-native';
-import {CEMENT, LIGHT_BLUE, PINK} from '../../../utils/Colors';
+import {CEMENT, GOLD, LIGHT_BLUE, PINK} from '../../../utils/Colors';
 import {
   FIND_OUT_WHY,
   HAPPY_SCORE,
   LIVE_UPPERCASE,
 } from '../../../utils/Strings';
 
-const Card = () => (
+interface CardProps {
+  weekData: number[];
+}
+
+const Card = (props: CardProps) => (
   <View style={styles.container}>
     <View style={styles.mainSection}>
       <View style={styles.titleSection}>
         <Text style={styles.title}>{HAPPY_SCORE}</Text>
         <Text style={styles.liveText}>{LIVE_UPPERCASE}</Text>
+      </View>
+      <View style={styles.barChartSection}>
+        {props.weekData.map(item => (
+          <View style={[styles.bar, {height: item + '%'}]} />
+        ))}
       </View>
       <TouchableOpacity style={styles.titleSection}>
         <Text style={styles.findOutWhyText}>{FIND_OUT_WHY}</Text>
@@ -29,7 +38,9 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
   },
-  mainSection: {},
+  mainSection: {
+    flex: 0.6,
+  },
   titleSection: {
     flexDirection: 'row',
     alignItems: 'center',
@@ -46,6 +57,17 @@ const styles = StyleSheet.create({
     fontWeight: '500',
     color: PINK,
     marginStart: 5,
+  },
+  barChartSection: {
+    flexDirection: 'row',
+    height: 138,
+    justifyContent: 'space-around',
+    alignItems: 'flex-end',
+  },
+  bar: {
+    borderRadius: 4,
+    width: 6,
+    backgroundColor: GOLD,
   },
   findOutWhyText: {
     fontSize: 16,

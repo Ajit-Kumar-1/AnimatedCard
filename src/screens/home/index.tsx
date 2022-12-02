@@ -8,7 +8,7 @@ import {CEMENT} from '../../utils/Colors';
 const HomeScreen = () => (
   <SafeAreaView style={CONTAINER}>
     <Text style={styles.title}>{HEREWORKS}</Text>
-    <Card />
+    <Card weekData={[64, 47, 55, 62, 60, 64, 62]} />
   </SafeAreaView>
 );
 
