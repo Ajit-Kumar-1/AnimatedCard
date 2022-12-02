@@ -5,14 +5,18 @@ import Cloud from '../../icons/cloudBase.svg';
 import {CEMENT} from '../../utils/Colors';
 
 const WeatherIcon = () => (
-  <View>
+  <View style={styles.container}>
     <Sun width={8.5} height={7.5} style={styles.sun} />
     <Cloud width={18} height={11} style={styles.cloud} />
   </View>
 );
 
 const styles = StyleSheet.create({
+  container: {
+    width: 19,
+  },
   sun: {
+    alignSelf: 'flex-end',
     borderWidth: 1,
     borderRadius: 5,
     borderColor: CEMENT,
