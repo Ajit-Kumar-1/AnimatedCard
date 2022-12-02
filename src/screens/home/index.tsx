@@ -4,7 +4,7 @@ import {CONTAINER} from '../../utils/Styles';
 import {HEREWORKS, HERE_ARE_YOUR_LATEST_UPDATES} from '../../utils/Strings';
 import Card from './Card';
 import {CEMENT, WHITE} from '../../utils/Colors';
-import Cloud from '../../icons/cloudBase.svg';
+import WeatherIcon from './WeatherIcon';
 
 const temperature = 24;
 const name = 'Derek';
@@ -22,8 +22,8 @@ const HomeScreen = () => (
             </Text>
           </View>
           <View style={styles.weatherSection}>
-            <Cloud width={18} height={11} />
             <Text style={styles.temperatureText}>{`${temperature}°`}</Text>
+            <WeatherIcon />
           </View>
         </View>
         <Card
