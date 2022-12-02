@@ -31,6 +31,7 @@ const Bar = (props: BarProps) => (
       />
       <Text style={styles.barText}>Tu</Text>
     </View>
+    {props.isCurrent ? <View style={styles.currentBarMarker} /> : null}
   </View>
 );
 
@@ -80,12 +81,14 @@ const styles = StyleSheet.create({
     fontWeight: '500',
     color: PINK,
     marginStart: 5,
+    alignSelf: 'center',
   },
   barChartSection: {
     flexDirection: 'row',
-    height: 138,
     justifyContent: 'space-around',
     marginTop: 8,
+    marginStart: 2,
+    marginBottom: 12,
   },
   barColumn: {
     alignItems: 'center',
@@ -104,6 +107,12 @@ const styles = StyleSheet.create({
     fontSize: 12,
     lineHeight: 20,
     fontWeight: '500',
+  },
+  currentBarMarker: {
+    width: 4,
+    height: 4,
+    borderRadius: 2,
+    backgroundColor: PINK,
   },
   findOutWhyText: {
     fontSize: 16,
