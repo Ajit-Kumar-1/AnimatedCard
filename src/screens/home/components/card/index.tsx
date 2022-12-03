@@ -19,7 +19,7 @@ interface CardProps {
 const Card = (props: CardProps) => {
   const animatedValue = new Animated.Value(0);
   Animated.timing(animatedValue, {
-    duration: 1000,
+    duration: 500,
     useNativeDriver: true,
     toValue: 1,
   }).start();
@@ -33,6 +33,7 @@ const Card = (props: CardProps) => {
           </Label>
         </View>
         <BarChart
+          animation={animatedValue}
           style={styles.barChart}
           data={props.barChartData}
           labels={props.barChartLabels}

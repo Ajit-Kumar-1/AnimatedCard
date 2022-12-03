@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, StyleSheet, FlexStyle} from 'react-native';
+import {View, StyleSheet, FlexStyle, Animated} from 'react-native';
 import Label from '../../../../../components/Label';
 import {BLACK, DARK_BLUE, GOLD, PINK} from '../../../../../utils/Colors';
 
@@ -13,6 +13,7 @@ interface BarChartProps {
   data: number[];
   labels: string[];
   style?: FlexStyle;
+  animation: Animated.Value;
 }
 
 const Bar = (props: BarProps) => (
