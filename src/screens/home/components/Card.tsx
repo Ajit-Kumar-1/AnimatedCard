@@ -116,7 +116,7 @@ const styles = StyleSheet.create({
   barChartSection: {
     flexDirection: 'row',
     justifyContent: 'space-around',
-    marginTop: 18,
+    marginTop: 28,
     marginBottom: 12,
     marginStart: 2,
   },
@@ -128,7 +128,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   barBase: {
-    height: 100,
+    height: 70,
     justifyContent: 'flex-end',
   },
   bar: {
@@ -136,6 +136,7 @@ const styles = StyleSheet.create({
     width: 6,
   },
   barText: {
+    marginTop: 5,
     fontSize: 12,
     lineHeight: 20,
     color: BLACK,
