@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import {
   View,
   StyleSheet,
@@ -19,16 +19,26 @@ const temperature = 24;
 const name = 'Derek';
 const weekData = [64, 47, 55, 62, 60, 64, 62];
 const labels = ['We', 'Th', 'Fr', 'Sa', 'Su', 'Mo', 'Tu'];
-
-const HomeScreen = () => {
-  const animatedValue = new Animated.Value(0);
-  const refreshing = false;
-  const onRefresh = () => {};
+const animatedValue = new Animated.Value(0);
+const runTiming = () =>
   Animated.timing(animatedValue, {
     duration: 500,
     useNativeDriver: false,
     toValue: 1,
   }).start();
+
+const HomeScreen = () => {
+  const [refreshing, setRefreshing] = useState(false);
+  const onRefresh = () => {
+    setRefreshing(true);
+    setTimeout(() => {
+      runTiming();
+      setRefreshing(false);
+    }, 1000);
+  };
+
+  useEffect(() => runTiming(), []);
+
   return (
     <ScreenBackground>
       <ScrollView
