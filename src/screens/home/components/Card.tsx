@@ -34,16 +34,18 @@ interface PieChartProps {
 
 const Bar = (props: BarProps) => (
   <View style={styles.barColumn}>
-    <View style={styles.barContainer}>
-      <View
-        style={[
-          styles.bar,
-          {
-            height: props.value + '%',
-            backgroundColor: props.isCurrent ? PINK : GOLD,
-          },
-        ]}
-      />
+    <View style={styles.barColumnMainSection}>
+      <View style={styles.barBase}>
+        <View
+          style={[
+            styles.bar,
+            {
+              height: props.value,
+              backgroundColor: props.isCurrent ? PINK : GOLD,
+            },
+          ]}
+        />
+      </View>
       <Label
         medium
         style={[styles.barText, {color: props.isCurrent ? DARK_BLUE : BLACK}]}>
@@ -95,7 +97,7 @@ const Card = (props: CardProps) => (
 const styles = StyleSheet.create({
   container: {
     width: '100%',
-    paddingHorizontal: 20,
+    paddingHorizontal: 21,
     paddingVertical: 16,
     flexDirection: 'row',
     alignItems: 'center',
@@ -122,10 +124,12 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     marginEnd: 8,
   },
-  barContainer: {
-    justifyContent: 'flex-end',
+  barColumnMainSection: {
     alignItems: 'center',
+  },
+  barBase: {
     height: 100,
+    justifyContent: 'flex-end',
   },
   bar: {
     borderRadius: 4,
