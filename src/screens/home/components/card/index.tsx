@@ -33,7 +33,7 @@ const Card = (props: CardProps) => {
           </Label>
         </View>
         <BarChart
-          animation={animatedValue}
+          animatedValue={animatedValue}
           style={styles.barChart}
           data={props.barChartData}
           labels={props.barChartLabels}
@@ -45,7 +45,7 @@ const Card = (props: CardProps) => {
           <ArrowIcon style={styles.arrowIcon} />
         </TouchableOpacity>
       </View>
-      <PieChart animation={animatedValue} value={89} />
+      <PieChart animatedValue={animatedValue} value={89} />
     </View>
   );
 };

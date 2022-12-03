@@ -22,12 +22,12 @@ const d = `M ${x1} ${y1} A ${r} ${r} 0 1 0 ${x2} ${y2}`;
 
 interface PieChartProps {
   value: number;
-  animation: Animated.Value;
+  animatedValue: Animated.Value;
 }
 
 const Arc = (props: PieChartProps) => {
   const circumference = r * A;
-  const α = props.animation.interpolate({
+  const α = props.animatedValue.interpolate({
     inputRange: [0, 140 / props.value],
     outputRange: [A, 0],
   });

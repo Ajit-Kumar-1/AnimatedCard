@@ -14,7 +14,7 @@ interface BarChartProps {
   data: number[];
   labels: string[];
   style?: FlexStyle;
-  animation: Animated.Value;
+  animatedValue: Animated.Value;
 }
 
 const Bar = (props: BarProps) => {
@@ -51,7 +51,7 @@ const BarChart = (props: BarChartProps) => (
   <View style={[styles.barChartSection, props.style]}>
     {props.data.map((item, index) => (
       <Bar
-        animation={props.animation}
+        animation={props.animatedValue}
         key={`bar_${index}`}
         value={item}
         text={props.labels[index]}
