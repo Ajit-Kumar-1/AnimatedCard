@@ -20,7 +20,6 @@ const styles = StyleSheet.create({
   container: {
     width: 19,
     bottom: 4,
-    // backgroundColor: 'red',
   },
   sun: {
     alignSelf: 'flex-end',

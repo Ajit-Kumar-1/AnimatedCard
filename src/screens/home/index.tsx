@@ -83,6 +83,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'flex-end',
     alignSelf: 'flex-end',
+    marginEnd: 10,
   },
 });
 
