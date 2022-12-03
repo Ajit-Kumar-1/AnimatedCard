@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import Svg, {Defs, LinearGradient, Stop, Path} from 'react-native-svg';
 import Animated from 'react-native-reanimated';
 
@@ -10,9 +10,9 @@ const {PI, cos, sin} = Math;
 const r = (size - strokeWidth) / 2;
 const cx = size / 2;
 const cy = size / 2;
-const A = PI + PI * 0.4;
-const startAngle = PI + PI * 0.2;
-const endAngle = 2 * PI - PI * 0.2;
+const A = PI * 2;
+const startAngle = PI * 0.5;
+const endAngle = PI * 1;
 // A rx ry x-axis-rotation large-arc-flag sweep-flag x y
 const x1 = cx - r * cos(startAngle);
 const y1 = -r * sin(startAngle) + cy;
@@ -35,8 +35,8 @@ export default ({progress}: CircularPogressProps) => {
     <Svg width={size} height={size} style={{position: 'absolute'}}>
       <Defs>
         <LinearGradient id="grad" x1="0" y1="0" x2="100%" y2="0">
-          <Stop offset="0" stopColor="#f7cd46" />
-          <Stop offset="1" stopColor="#ef9837" />
+          <Stop offset="0" stopColor="#F5B335FF" />
+          <Stop offset="1" stopColor="#F5B3358A" />
         </LinearGradient>
       </Defs>
       <Path
@@ -47,6 +47,7 @@ export default ({progress}: CircularPogressProps) => {
       />
       <AnimatedPath
         stroke="url(#grad)"
+        strokeLinecap="round"
         fill="none"
         strokeDasharray={`${circumference}, ${circumference}`}
         {...{d, strokeDashoffset, strokeWidth}}

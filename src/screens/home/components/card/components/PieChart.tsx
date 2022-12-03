@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, StyleSheet} from 'react-native';
+import {View, StyleSheet, Animated} from 'react-native';
 import Label from '../../../../../components/Label';
 import {ASH, CEMENT_BLUE} from '../../../../../utils/Colors';
 import Arc from './Arc';
@@ -8,14 +8,25 @@ interface PieChartProps {
   value: number;
 }
 
-const PieChart = (props: PieChartProps) => (
-  <View style={styles.pieChartBackground}>
-    <Arc />
-    <Label bold style={styles.pieChartText}>
-      {props.value.toString()}
-    </Label>
-  </View>
-);
+const PieChart = (props: PieChartProps) => {
+  const animatedValue = new Animated.Value(0);
+  const animation = () => {
+    // Will change fadeAnim value to 1 in 5 seconds
+    Animated.timing(animatedValue, {
+      duration: 5000,
+      useNativeDriver: true,
+      toValue: 1,
+    }).start();
+  };
+  return (
+    <View style={styles.pieChartBackground}>
+      <Arc />
+      <Label bold style={styles.pieChartText}>
+        {props.value.toString()}
+      </Label>
+    </View>
+  );
+};
 
 const styles = StyleSheet.create({
   pieChartBackground: {
