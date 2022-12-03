@@ -10,21 +10,19 @@ interface PieChartProps {
 
 const PieChart = (props: PieChartProps) => {
   const animatedValue = new Animated.Value(0);
-  const animation = () => {
-    // Will change fadeAnim value to 1 in 5 seconds
-    Animated.timing(animatedValue, {
-      duration: 5000,
-      useNativeDriver: true,
-      toValue: 1,
-    }).start();
-  };
+  Animated.timing(animatedValue, {
+    duration: 5000,
+    useNativeDriver: true,
+    toValue: 1,
+  }).start();
   return (
-    <View style={styles.pieChartBackground}>
+    <Animated.View
+      style={[styles.pieChartBackground, {opacity: animatedValue}]}>
       <Arc />
       <Label bold style={styles.pieChartText}>
         {props.value.toString()}
       </Label>
-    </View>
+    </Animated.View>
   );
 };
 
