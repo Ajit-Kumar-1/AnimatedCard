@@ -33,7 +33,7 @@ const HomeScreen = () => (
               <WeatherIcon />
             </View>
           </View>
-          <Card weekData={weekData} labels={labels} />
+          <Card barChartData={weekData} barChartLabels={labels} />
         </SafeAreaView>
       </View>
       <ContentItem />
