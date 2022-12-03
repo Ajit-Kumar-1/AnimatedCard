@@ -1,7 +1,7 @@
 import React from 'react';
 import {View, StyleSheet} from 'react-native';
-import Sun from '../../../icons/sunBg.svg';
-import Cloud from '../../../icons/cloudBase.svg';
+import Sun from '../../../../assets/icons/sunBg.svg';
+import Cloud from '../../../../assets/icons/cloudBase.svg';
 import {CEMENT} from '../../../utils/Colors';
 
 const WeatherIcon = () => (

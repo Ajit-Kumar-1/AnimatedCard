@@ -8,11 +8,11 @@ import MyBookingsScreen from './src/screens/my_bookings';
 import BookingScreen from './src/screens/booking';
 import {GOLD, LIGHT_GRAY, CEMENT} from './src/utils/Colors';
 import {HOME, BOOKING, MY_BOOKINGS, PROFILE} from './src/utils/Strings';
-import HomeIcon from './src/icons/home.svg';
-import MyBookingsIcon from './src/icons/my_bookings.svg';
-import BookingIcon from './src/icons/booking.svg';
-import ProfileIconTopHalf from './src/icons/profile_1.svg';
-import ProfileIconBottomHalf from './src/icons/profile_2.svg';
+import HomeIcon from './assets/icons/home.svg';
+import MyBookingsIcon from './assets/icons/my_bookings.svg';
+import BookingIcon from './assets/icons/booking.svg';
+import ProfileIconTopHalf from './assets/icons/profile_1.svg';
+import ProfileIconBottomHalf from './assets/icons/profile_2.svg';
 
 const Tab = createBottomTabNavigator();
 
