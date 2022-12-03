@@ -117,7 +117,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-around',
     marginTop: 28,
-    marginBottom: 12,
+    marginBottom: 11,
     marginStart: 2,
   },
   barColumn: {
@@ -129,11 +129,11 @@ const styles = StyleSheet.create({
   },
   barBase: {
     height: 70,
+    width: 6,
     justifyContent: 'flex-end',
   },
   bar: {
     borderRadius: 4,
-    width: 6,
   },
   barText: {
     marginTop: 5,
@@ -149,6 +149,7 @@ const styles = StyleSheet.create({
   },
   findOutWhyTextContainer: {
     borderBottomColor: LIGHT_BLUE,
+    marginStart: 3,
     borderBottomWidth: 1,
   },
   findOutWhyText: {
