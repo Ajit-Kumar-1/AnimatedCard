@@ -2,6 +2,7 @@ import React from 'react';
 import {View, StyleSheet} from 'react-native';
 import Label from '../../../../../components/Label';
 import {ASH, CEMENT_BLUE} from '../../../../../utils/Colors';
+import Arc from './Arc';
 
 interface PieChartProps {
   value: number;
@@ -12,6 +13,7 @@ const PieChart = (props: PieChartProps) => (
     <Label bold style={styles.pieChartText}>
       {props.value.toString()}
     </Label>
+    <Arc />
   </View>
 );
 
