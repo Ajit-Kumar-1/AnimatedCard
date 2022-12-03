@@ -1,5 +1,6 @@
 export const ASH = '#C4C4C4';
 export const BLACK = '#000000';
+export const BOTTOM_LINE = '#E5E4DE';
 export const CEMENT = '#323E48';
 export const DARK_BLUE = '#444F71';
 export const GOLD = '#F5B335';

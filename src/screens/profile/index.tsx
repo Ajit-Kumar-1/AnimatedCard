@@ -1,7 +1,6 @@
 import React from 'react';
-import {View} from 'react-native';
-import {CONTAINER} from '../../utils/Styles';
+import ScreenBackground from '../../components/ScreenBackground';
 
-const ProfileScreen = () => <View style={CONTAINER} />;
+const ProfileScreen = () => <ScreenBackground />;
 
 export default ProfileScreen;

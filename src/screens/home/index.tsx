@@ -1,11 +1,11 @@
 import React from 'react';
 import {View, StyleSheet, Text, SafeAreaView} from 'react-native';
-import {CONTAINER} from '../../utils/Styles';
 import {HEREWORKS, HERE_ARE_YOUR_LATEST_UPDATES} from '../../utils/Strings';
 import Card from './components/Card';
 import {CEMENT, SHADOW, WHITE} from '../../utils/Colors';
 import WeatherIcon from './components/WeatherIcon';
 import ContentItem from './components/ContentItem';
+import ScreenBackground from '../../components/ScreenBackground';
 
 const temperature = 24;
 const name = 'Derek';
@@ -13,27 +13,29 @@ const weekData = [64, 47, 55, 62, 60, 64, 62];
 const labels = ['We', 'Th', 'Fr', 'Sa', 'Su', 'Mo', 'Tu'];
 
 const HomeScreen = () => (
-  <View style={CONTAINER}>
-    <View style={styles.mainSection}>
-      <SafeAreaView>
-        <Text style={styles.title}>{HEREWORKS}</Text>
-        <View style={styles.welcomeSection}>
-          <View>
-            <Text style={styles.greeting}>{`Hi ${name} 👋`}</Text>
-            <Text style={styles.latestUpdatesText}>
-              {HERE_ARE_YOUR_LATEST_UPDATES}
-            </Text>
+  <ScreenBackground>
+    <>
+      <View style={styles.mainSection}>
+        <SafeAreaView>
+          <Text style={styles.title}>{HEREWORKS}</Text>
+          <View style={styles.welcomeSection}>
+            <View>
+              <Text style={styles.greeting}>{`Hi ${name} 👋`}</Text>
+              <Text style={styles.latestUpdatesText}>
+                {HERE_ARE_YOUR_LATEST_UPDATES}
+              </Text>
+            </View>
+            <View style={styles.weatherSection}>
+              <Text style={styles.temperatureText}>{`${temperature}°`}</Text>
+              <WeatherIcon />
+            </View>
           </View>
-          <View style={styles.weatherSection}>
-            <Text style={styles.temperatureText}>{`${temperature}°`}</Text>
-            <WeatherIcon />
-          </View>
-        </View>
-        <Card weekData={weekData} labels={labels} />
-      </SafeAreaView>
-    </View>
-    <ContentItem />
-  </View>
+          <Card weekData={weekData} labels={labels} />
+        </SafeAreaView>
+      </View>
+      <ContentItem />
+    </>
+  </ScreenBackground>
 );
 
 const styles = StyleSheet.create({
