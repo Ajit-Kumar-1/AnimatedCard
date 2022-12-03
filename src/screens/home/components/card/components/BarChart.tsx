@@ -7,7 +7,7 @@ interface BarProps {
   value: number;
   text: string;
   isCurrent?: boolean;
-  animation: Animated.Value;
+  animatedValue: Animated.Value;
 }
 
 interface BarChartProps {
@@ -27,7 +27,7 @@ const Bar = (props: BarProps) => {
               styles.bar,
               {
                 height: props.value,
-                transform: [{scaleY: props.animation}],
+                transform: [{scaleY: props.animatedValue}],
                 backgroundColor: props.isCurrent ? PINK : GOLD,
               },
             ]}
@@ -51,7 +51,7 @@ const BarChart = (props: BarChartProps) => (
   <View style={[styles.barChartSection, props.style]}>
     {props.data.map((item, index) => (
       <Bar
-        animation={props.animatedValue}
+        animatedValue={props.animatedValue}
         key={`bar_${index}`}
         value={item}
         text={props.labels[index]}
