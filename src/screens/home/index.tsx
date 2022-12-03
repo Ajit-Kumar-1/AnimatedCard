@@ -63,12 +63,14 @@ const styles = StyleSheet.create({
     lineHeight: 30,
     fontWeight: '900',
     color: CEMENT,
+    fontFamily: 'Roboto',
   },
   latestUpdatesText: {
     fontSize: 16,
     lineHeight: 24,
     fontWeight: '400',
     marginTop: 4,
+    fontFamily: 'Roboto',
   },
   weatherSection: {
     flexDirection: 'row',
@@ -80,6 +82,7 @@ const styles = StyleSheet.create({
     lineHeight: 24,
     fontWeight: '900',
     color: CEMENT,
+    fontFamily: 'Roboto',
   },
 });
 

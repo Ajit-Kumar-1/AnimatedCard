@@ -101,6 +101,7 @@ const styles = StyleSheet.create({
     lineHeight: 24,
     fontWeight: '900',
     color: CEMENT,
+    fontFamily: 'Roboto',
   },
   liveText: {
     fontSize: 12,
@@ -136,6 +137,7 @@ const styles = StyleSheet.create({
     lineHeight: 20,
     fontWeight: '500',
     color: BLACK,
+    fontFamily: 'Roboto',
   },
   currentBarMarker: {
     width: 4,
@@ -152,6 +154,7 @@ const styles = StyleSheet.create({
     lineHeight: 24,
     fontWeight: '400',
     color: LIGHT_BLUE,
+    fontFamily: 'Roboto',
   },
   arrowIcon: {
     marginTop: 4,
@@ -170,6 +173,7 @@ const styles = StyleSheet.create({
     lineHeight: 42,
     fontWeight: '900',
     color: DARK_BLUE,
+    fontFamily: 'Roboto',
   },
 });
 

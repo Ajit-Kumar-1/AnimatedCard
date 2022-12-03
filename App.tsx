@@ -31,6 +31,7 @@ const App = () => (
           fontSize: 12,
           lineHeight: 20,
           fontWeight: '400',
+          fontFamily: 'Roboto',
         },
       }}>
       <Tab.Screen
