@@ -1,12 +1,10 @@
 import * as React from 'react';
-import {Dimensions} from 'react-native';
 import Svg, {Defs, LinearGradient, Stop, Path} from 'react-native-svg';
 import Animated from 'react-native-reanimated';
 
 const {interpolateNode, multiply} = Animated;
-const {width} = Dimensions.get('window');
-const size = width - 32;
-const strokeWidth = 50;
+const size = 108;
+const strokeWidth = 12;
 const AnimatedPath = Animated.createAnimatedComponent(Path);
 const {PI, cos, sin} = Math;
 const r = (size - strokeWidth) / 2;
@@ -34,7 +32,7 @@ export default ({progress}: CircularPogressProps) => {
   });
   const strokeDashoffset = multiply(α, r);
   return (
-    <Svg width={size} height={size}>
+    <Svg width={size} height={size} style={{position: 'absolute'}}>
       <Defs>
         <LinearGradient id="grad" x1="0" y1="0" x2="100%" y2="0">
           <Stop offset="0" stopColor="#f7cd46" />

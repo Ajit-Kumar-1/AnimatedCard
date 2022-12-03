@@ -10,10 +10,10 @@ interface PieChartProps {
 
 const PieChart = (props: PieChartProps) => (
   <View style={styles.pieChartBackground}>
+    <Arc />
     <Label bold style={styles.pieChartText}>
       {props.value.toString()}
     </Label>
-    <Arc />
   </View>
 );
 
