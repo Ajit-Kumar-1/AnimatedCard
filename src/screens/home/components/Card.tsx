@@ -45,6 +45,7 @@ const Bar = (props: BarProps) => (
         ]}
       />
       <Label
+        medium
         style={[styles.barText, {color: props.isCurrent ? DARK_BLUE : BLACK}]}>
         {props.text}
       </Label>
@@ -64,7 +65,9 @@ const Card = (props: CardProps) => (
     <View>
       <View style={styles.titleSection}>
         <Text style={styles.title}>{HAPPY_SCORE}</Text>
-        <Text style={styles.liveText}>{LIVE_UPPERCASE}</Text>
+        <Label medium style={styles.liveText}>
+          {LIVE_UPPERCASE}
+        </Label>
       </View>
       <View style={styles.barChartSection}>
         {props.weekData.map((item, index) => (
@@ -108,9 +111,6 @@ const styles = StyleSheet.create({
     fontFamily: 'Roboto',
   },
   liveText: {
-    fontSize: 12,
-    lineHeight: 20,
-    fontWeight: '500',
     color: PINK,
     marginStart: 5,
     alignSelf: 'center',

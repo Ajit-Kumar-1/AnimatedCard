@@ -8,10 +8,15 @@ interface LabelProps {
   children: string;
   style?: TextStyle;
   bold?: boolean;
+  medium?: boolean;
 }
 
 const Label = (props: LabelProps) => (
-  <Text style={[props.bold ? styles.bold : styles.medium, props.style]}>
+  <Text
+    style={[
+      props.bold ? styles.bold : props.medium ? styles.medium : styles.regular,
+      props.style,
+    ]}>
     {props.children}
   </Text>
 );
@@ -28,6 +33,13 @@ const styles = StyleSheet.create({
     color: CEMENT,
     fontSize: 12,
     lineHeight: 20,
+  },
+  regular: {
+    fontFamily: isIOS ? 'Roboto' : 'Roboto-Regular',
+    fontWeight: isIOS ? '400' : undefined,
+    color: CEMENT,
+    fontSize: 16,
+    lineHeight: 24,
   },
 });
 
