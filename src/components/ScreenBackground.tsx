@@ -1,9 +1,9 @@
 import React from 'react';
-import {View, StyleSheet, FlexStyle} from 'react-native';
+import {View, StyleSheet, ViewStyle} from 'react-native';
 import {BOTTOM_LINE, SCREEN_BACKGROUND} from '../utils/Colors';
 
 interface ScreenContainerProps {
-  style?: FlexStyle;
+  style?: ViewStyle;
   children?: Element;
 }
 

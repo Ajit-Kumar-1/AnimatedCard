@@ -7,9 +7,10 @@ import {
   ScrollView,
   RefreshControl,
 } from 'react-native';
+import {useSafeAreaInsets} from 'react-native-safe-area-context';
 import {HEREWORKS, HERE_ARE_YOUR_LATEST_UPDATES} from '../../utils/Strings';
 import Card from './components/card';
-import {SHADOW, WHITE} from '../../utils/Colors';
+import {SCREEN_BACKGROUND, SHADOW, WHITE} from '../../utils/Colors';
 import WeatherIcon from './components/WeatherIcon';
 import ContentItem from './components/ContentItem';
 import ScreenBackground from '../../components/ScreenBackground';
@@ -40,10 +41,16 @@ const HomeScreen = () => {
   useEffect(() => Timing.start(), []);
 
   return (
-    <ScreenBackground>
+    <ScreenBackground style={styles.background}>
       <ScrollView
+        contentContainerStyle={styles.scrollView}
         refreshControl={
-          <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
+          <RefreshControl
+            progressViewOffset={useSafeAreaInsets().top * 0.8}
+            style={{marginBottom: useSafeAreaInsets().top}}
+            refreshing={refreshing}
+            onRefresh={onRefresh}
+          />
         }>
         <View style={styles.mainSection}>
           <SafeAreaView>
@@ -76,6 +83,13 @@ const HomeScreen = () => {
 };
 
 const styles = StyleSheet.create({
+  background: {
+    backgroundColor: WHITE,
+  },
+  scrollView: {
+    backgroundColor: SCREEN_BACKGROUND,
+    flex: 1,
+  },
   title: {
     marginHorizontal: 24,
     marginTop: 19,
