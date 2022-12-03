@@ -81,7 +81,7 @@ const Card = (props: CardProps) => (
       </View>
       <TouchableOpacity style={styles.titleSection}>
         <View style={styles.findOutWhyTextContainer}>
-          <Text style={styles.findOutWhyText}>{FIND_OUT_WHY}</Text>
+          <Label style={styles.findOutWhyText}>{FIND_OUT_WHY}</Label>
         </View>
         <ArrowIcon style={styles.arrowIcon} />
       </TouchableOpacity>
@@ -152,11 +152,7 @@ const styles = StyleSheet.create({
     borderBottomWidth: 1,
   },
   findOutWhyText: {
-    fontSize: 16,
-    lineHeight: 24,
-    fontWeight: '400',
     color: LIGHT_BLUE,
-    fontFamily: 'Roboto',
   },
   arrowIcon: {
     marginTop: 4,
