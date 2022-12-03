@@ -8,7 +8,7 @@ interface ScreenContainerProps {
 }
 
 const ScreenBackground = (props: ScreenContainerProps) => (
-  <View style={styles.container}>
+  <View style={[styles.container, props.style]}>
     <>
       {props.children}
       <View style={styles.bottomLine} />
