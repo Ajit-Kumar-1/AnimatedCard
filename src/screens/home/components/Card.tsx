@@ -1,5 +1,6 @@
 import React from 'react';
 import {View, StyleSheet, Text, TouchableOpacity} from 'react-native';
+import Label from '../../../components/Label';
 import {
   ASH,
   BLACK,
@@ -43,7 +44,10 @@ const Bar = (props: BarProps) => (
           },
         ]}
       />
-      <Text style={styles.barText}>{props.text}</Text>
+      <Label
+        style={[styles.barText, {color: props.isCurrent ? DARK_BLUE : BLACK}]}>
+        {props.text}
+      </Label>
     </View>
     {props.isCurrent ? <View style={styles.currentBarMarker} /> : null}
   </View>
@@ -135,9 +139,7 @@ const styles = StyleSheet.create({
   barText: {
     fontSize: 12,
     lineHeight: 20,
-    fontWeight: '500',
     color: BLACK,
-    fontFamily: 'Roboto',
   },
   currentBarMarker: {
     width: 4,
