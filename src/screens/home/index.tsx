@@ -5,6 +5,7 @@ import {HEREWORKS, HERE_ARE_YOUR_LATEST_UPDATES} from '../../utils/Strings';
 import Card from './components/Card';
 import {CEMENT, SHADOW, WHITE} from '../../utils/Colors';
 import WeatherIcon from './components/WeatherIcon';
+import ContentItem from './components/ContentItem';
 
 const temperature = 24;
 const name = 'Derek';
@@ -31,6 +32,7 @@ const HomeScreen = () => (
         <Card weekData={weekData} labels={labels} />
       </SafeAreaView>
     </View>
+    <ContentItem />
   </View>
 );
 

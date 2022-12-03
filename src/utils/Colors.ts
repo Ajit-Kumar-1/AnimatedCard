@@ -6,6 +6,7 @@ export const GOLD = '#F5B335';
 export const LIGHT_BLUE = '#2173C4';
 export const LIGHT_GRAY = '#EEEDE8';
 export const PINK = '#D6006D';
+export const PRIMARY_GRAY = '#D9D8D6';
 export const SCREEN_BACKGROUND = '#E5E5E5';
 export const SHADOW = '#323247';
 export const WHITE = '#FFFFFF';
