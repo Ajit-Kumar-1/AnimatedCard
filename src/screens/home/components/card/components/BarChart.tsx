@@ -18,6 +18,10 @@ interface BarChartProps {
 }
 
 const Bar = (props: BarProps) => {
+  const height = props.animatedValue.interpolate({
+    inputRange: [0, 1],
+    outputRange: [0, props.value],
+  });
   return (
     <View style={styles.barColumn}>
       <View style={styles.barColumnMainSection}>
@@ -26,8 +30,8 @@ const Bar = (props: BarProps) => {
             style={[
               styles.bar,
               {
-                height: props.value,
-                transform: [{scaleY: props.animatedValue}],
+                height: height,
+                // transform: [{scaleY: props.animatedValue}],
                 backgroundColor: props.isCurrent ? PINK : GOLD,
               },
             ]}

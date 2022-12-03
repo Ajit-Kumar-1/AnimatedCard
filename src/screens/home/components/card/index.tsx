@@ -20,7 +20,7 @@ const Card = (props: CardProps) => {
   const animatedValue = new Animated.Value(0);
   Animated.timing(animatedValue, {
     duration: 500,
-    useNativeDriver: true,
+    useNativeDriver: false,
     toValue: 1,
   }).start();
   return (
