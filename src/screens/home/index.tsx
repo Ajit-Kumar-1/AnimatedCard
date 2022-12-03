@@ -1,8 +1,8 @@
 import React from 'react';
-import {View, StyleSheet, Text, SafeAreaView} from 'react-native';
+import {View, StyleSheet, SafeAreaView} from 'react-native';
 import {HEREWORKS, HERE_ARE_YOUR_LATEST_UPDATES} from '../../utils/Strings';
 import Card from './components/Card';
-import {CEMENT, SHADOW, WHITE} from '../../utils/Colors';
+import {SHADOW, WHITE} from '../../utils/Colors';
 import WeatherIcon from './components/WeatherIcon';
 import ContentItem from './components/ContentItem';
 import ScreenBackground from '../../components/ScreenBackground';
@@ -18,16 +18,18 @@ const HomeScreen = () => (
     <>
       <View style={styles.mainSection}>
         <SafeAreaView>
-          <Text style={styles.title}>{HEREWORKS}</Text>
+          <Label bold style={styles.title}>
+            {HEREWORKS}
+          </Label>
           <View style={styles.welcomeSection}>
             <View>
-              <Text style={styles.greeting}>{`Hi ${name} 👋`}</Text>
+              <Label bold style={styles.greeting}>{`Hi ${name} 👋`}</Label>
               <Label style={styles.latestUpdatesText}>
                 {HERE_ARE_YOUR_LATEST_UPDATES}
               </Label>
             </View>
             <View style={styles.weatherSection}>
-              <Text style={styles.temperatureText}>{`${temperature}°`}</Text>
+              <Label bold>{`${temperature}°`}</Label>
               <WeatherIcon />
             </View>
           </View>
@@ -41,14 +43,11 @@ const HomeScreen = () => (
 
 const styles = StyleSheet.create({
   title: {
-    color: CEMENT,
-    marginStart: 24,
+    marginHorizontal: 24,
     marginTop: 19,
     marginBottom: 26,
-    fontWeight: '900',
     fontSize: 28,
     lineHeight: 36,
-    fontFamily: 'Roboto',
   },
   mainSection: {
     backgroundColor: WHITE,
@@ -64,9 +63,6 @@ const styles = StyleSheet.create({
   greeting: {
     fontSize: 22,
     lineHeight: 30,
-    fontWeight: '900',
-    color: CEMENT,
-    fontFamily: 'Roboto',
   },
   latestUpdatesText: {
     marginTop: 4,
@@ -75,13 +71,6 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'flex-end',
     alignSelf: 'flex-end',
-  },
-  temperatureText: {
-    fontSize: 16,
-    lineHeight: 24,
-    fontWeight: '900',
-    color: CEMENT,
-    fontFamily: 'Roboto',
   },
 });
 

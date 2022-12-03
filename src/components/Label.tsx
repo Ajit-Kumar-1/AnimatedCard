@@ -26,6 +26,8 @@ const styles = StyleSheet.create({
     fontFamily: isIOS ? 'Roboto' : 'Roboto-Bold',
     fontWeight: isIOS ? '900' : undefined,
     color: CEMENT,
+    fontSize: 16,
+    lineHeight: 24,
   },
   medium: {
     fontFamily: isIOS ? 'Roboto' : 'Roboto-Medium',
