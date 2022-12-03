@@ -1,5 +1,12 @@
 import React from 'react';
-import {View, StyleSheet, SafeAreaView, Animated} from 'react-native';
+import {
+  View,
+  StyleSheet,
+  SafeAreaView,
+  Animated,
+  ScrollView,
+  RefreshControl,
+} from 'react-native';
 import {HEREWORKS, HERE_ARE_YOUR_LATEST_UPDATES} from '../../utils/Strings';
 import Card from './components/card';
 import {SHADOW, WHITE} from '../../utils/Colors';
@@ -15,6 +22,8 @@ const labels = ['We', 'Th', 'Fr', 'Sa', 'Su', 'Mo', 'Tu'];
 
 const HomeScreen = () => {
   const animatedValue = new Animated.Value(0);
+  const refreshing = false;
+  const onRefresh = () => {};
   Animated.timing(animatedValue, {
     duration: 500,
     useNativeDriver: false,
@@ -22,7 +31,10 @@ const HomeScreen = () => {
   }).start();
   return (
     <ScreenBackground>
-      <>
+      <ScrollView
+        refreshControl={
+          <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
+        }>
         <View style={styles.mainSection}>
           <SafeAreaView>
             <Label bold style={styles.title}>
@@ -48,7 +60,7 @@ const HomeScreen = () => {
           </SafeAreaView>
         </View>
         <ContentItem />
-      </>
+      </ScrollView>
     </ScreenBackground>
   );
 };
