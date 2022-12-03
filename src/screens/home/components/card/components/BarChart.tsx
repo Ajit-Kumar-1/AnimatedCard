@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, StyleSheet} from 'react-native';
+import {View, StyleSheet, FlexStyle} from 'react-native';
 import Label from '../../../../../components/Label';
 import {BLACK, DARK_BLUE, GOLD, PINK} from '../../../../../utils/Colors';
 
@@ -12,6 +12,7 @@ interface BarProps {
 interface BarChartProps {
   data: number[];
   labels: string[];
+  style?: FlexStyle;
 }
 
 const Bar = (props: BarProps) => (
@@ -39,7 +40,7 @@ const Bar = (props: BarProps) => (
 );
 
 const BarChart = (props: BarChartProps) => (
-  <View style={styles.barChartSection}>
+  <View style={[styles.barChartSection, props.style]}>
     {props.data.map((item, index) => (
       <Bar
         key={`bar_${index}`}
@@ -55,9 +56,6 @@ const styles = StyleSheet.create({
   barChartSection: {
     flexDirection: 'row',
     justifyContent: 'space-around',
-    marginTop: 28,
-    marginBottom: 11,
-    marginStart: 2,
   },
   barColumn: {
     alignItems: 'center',

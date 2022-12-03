@@ -36,7 +36,11 @@ const Card = (props: CardProps) => (
           {LIVE_UPPERCASE}
         </Label>
       </View>
-      <BarChart data={props.barChartData} labels={props.barChartLabels} />
+      <BarChart
+        style={styles.barChart}
+        data={props.barChartData}
+        labels={props.barChartLabels}
+      />
       <TouchableOpacity style={styles.titleSection}>
         <View style={styles.findOutWhyTextContainer}>
           <Label style={styles.findOutWhyText}>{FIND_OUT_WHY}</Label>
@@ -67,9 +71,7 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
     top: 1,
   },
-  barChartSection: {
-    flexDirection: 'row',
-    justifyContent: 'space-around',
+  barChart: {
     marginTop: 28,
     marginBottom: 11,
     marginStart: 2,
