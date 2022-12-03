@@ -11,9 +11,9 @@ interface PieChartProps {
 const PieChart = (props: PieChartProps) => {
   const animatedValue = new Animated.Value(0);
   Animated.timing(animatedValue, {
-    duration: 5000,
+    duration: 500,
     useNativeDriver: true,
-    toValue: 1,
+    toValue: props.value,
   }).start();
   return (
     <View style={styles.pieChartBackground}>

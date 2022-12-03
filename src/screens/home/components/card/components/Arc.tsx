@@ -26,8 +26,8 @@ interface CircularPogressProps {
 export default ({progress}: CircularPogressProps) => {
   const circumference = r * A;
   const α = progress.interpolate({
-    inputRange: [0, 1],
-    outputRange: [0, A],
+    inputRange: [0, 100],
+    outputRange: [A, 0],
   });
   const strokeDashoffset = Animated.multiply(α, r);
   return (
