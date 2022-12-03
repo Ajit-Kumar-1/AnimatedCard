@@ -1,7 +1,7 @@
 import React from 'react';
 import {View, StyleSheet, TouchableOpacity} from 'react-native';
 import Label from '../../../../components/Label';
-import {ASH, CEMENT_BLUE, LIGHT_BLUE, PINK} from '../../../../utils/Colors';
+import {LIGHT_BLUE, PINK} from '../../../../utils/Colors';
 import {
   FIND_OUT_WHY,
   HAPPY_SCORE,
@@ -9,23 +9,12 @@ import {
 } from '../../../../utils/Strings';
 import ArrowIcon from './components/ArrowIcon';
 import BarChart from './components/BarChart';
+import PieChart from './components/PieChart';
 
 interface CardProps {
   barChartData: number[];
   barChartLabels: string[];
 }
-
-interface PieChartProps {
-  value: number;
-}
-
-const PieChart = (props: PieChartProps) => (
-  <View style={styles.pieChartBackground}>
-    <Label bold style={styles.pieChartText}>
-      {props.value.toString()}
-    </Label>
-  </View>
-);
 
 const Card = (props: CardProps) => (
   <View style={styles.container}>
@@ -86,20 +75,6 @@ const styles = StyleSheet.create({
   },
   arrowIcon: {
     marginTop: 4,
-  },
-  pieChartBackground: {
-    height: 108,
-    width: 108,
-    borderRadius: 54,
-    borderWidth: 12,
-    borderColor: ASH + '4C',
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  pieChartText: {
-    fontSize: 34,
-    lineHeight: 42,
-    color: CEMENT_BLUE,
   },
 });
 
