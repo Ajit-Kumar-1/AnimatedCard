@@ -28,8 +28,8 @@ interface PieChartProps {
 const Arc = (props: PieChartProps) => {
   const circumference = r * A;
   const α = props.animation.interpolate({
-    inputRange: [0, 140],
-    outputRange: [A * props.value, 0],
+    inputRange: [0, 140 / props.value],
+    outputRange: [A, 0],
   });
   const strokeDashoffset = Animated.multiply(α, -r);
   return (
@@ -51,22 +51,14 @@ const Arc = (props: PieChartProps) => {
   );
 };
 
-const PieChart = (props: PieChartProps) => {
-  const animatedValue = new Animated.Value(0);
-  Animated.timing(animatedValue, {
-    duration: 500,
-    useNativeDriver: true,
-    toValue: props.value,
-  }).start();
-  return (
-    <View style={styles.pieChartBackground}>
-      <Arc {...props} />
-      <Label bold style={styles.pieChartText}>
-        {props.value.toString()}
-      </Label>
-    </View>
-  );
-};
+const PieChart = (props: PieChartProps) => (
+  <View style={styles.pieChartBackground}>
+    <Arc {...props} />
+    <Label bold style={styles.pieChartText}>
+      {props.value.toString()}
+    </Label>
+  </View>
+);
 
 const styles = StyleSheet.create({
   pieChartBackground: {
