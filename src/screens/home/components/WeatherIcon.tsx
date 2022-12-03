@@ -69,7 +69,7 @@ const styles = StyleSheet.create({
   shine6: {
     transform: [{rotate: '118deg'}],
     start: '105%',
-    top: 4.2,
+    top: 4,
   },
 });
 
