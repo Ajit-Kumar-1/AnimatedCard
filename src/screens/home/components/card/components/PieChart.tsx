@@ -16,13 +16,12 @@ const PieChart = (props: PieChartProps) => {
     toValue: 1,
   }).start();
   return (
-    <Animated.View
-      style={[styles.pieChartBackground, {opacity: animatedValue}]}>
-      <Arc />
+    <View style={styles.pieChartBackground}>
+      <Arc progress={animatedValue} />
       <Label bold style={styles.pieChartText}>
         {props.value.toString()}
       </Label>
-    </Animated.View>
+    </View>
   );
 };
 

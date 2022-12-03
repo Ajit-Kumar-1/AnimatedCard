@@ -1,8 +1,7 @@
 import React from 'react';
 import Svg, {Defs, LinearGradient, Stop, Path} from 'react-native-svg';
-import Animated from 'react-native-reanimated';
+import {Animated, StyleSheet} from 'react-native';
 
-const {interpolateNode, multiply} = Animated;
 const size = 108;
 const strokeWidth = 12;
 const AnimatedPath = Animated.createAnimatedComponent(Path);
@@ -21,30 +20,24 @@ const y2 = -r * sin(endAngle) + cy;
 const d = `M ${x1} ${y1} A ${r} ${r} 0 1 0 ${x2} ${y2}`;
 
 interface CircularPogressProps {
-  progress: Animated.Value<number>;
+  progress: Animated.Value;
 }
 
 export default ({progress}: CircularPogressProps) => {
   const circumference = r * A;
-  const α = interpolateNode(progress, {
+  const α = progress.interpolate({
     inputRange: [0, 1],
     outputRange: [0, A],
   });
-  const strokeDashoffset = multiply(α, r);
+  const strokeDashoffset = Animated.multiply(α, r);
   return (
-    <Svg width={size} height={size} style={{position: 'absolute'}}>
+    <Svg width={size} height={size} style={styles.arc}>
       <Defs>
         <LinearGradient id="grad" x1="0" y1="0" x2="100%" y2="0">
           <Stop offset="0" stopColor="#F5B335FF" />
           <Stop offset="1" stopColor="#F5B3358A" />
         </LinearGradient>
       </Defs>
-      <Path
-        stroke="white"
-        fill="none"
-        strokeDasharray={`${circumference}, ${circumference}`}
-        {...{d, strokeWidth}}
-      />
       <AnimatedPath
         stroke="url(#grad)"
         strokeLinecap="round"
@@ -55,3 +48,9 @@ export default ({progress}: CircularPogressProps) => {
     </Svg>
   );
 };
+
+const styles = StyleSheet.create({
+  arc: {
+    position: 'absolute',
+  },
+});
