@@ -1,10 +1,14 @@
 import React from 'react';
-import {View, StyleSheet} from 'react-native';
+import {View, StyleSheet, FlexStyle} from 'react-native';
 import ArrowAxis from '../../../icons/arrow_horizontal_axis.svg';
 import ArrowHead from '../../../icons/arrow_right.svg';
 
-const ArrowIcon = () => (
-  <View style={styles.container}>
+interface ArrowIconProps {
+  style?: FlexStyle;
+}
+
+const ArrowIcon = (props: ArrowIconProps) => (
+  <View style={[{...props.style}, styles.container]}>
     <ArrowAxis />
     <ArrowHead style={styles.arrowHead} />
   </View>

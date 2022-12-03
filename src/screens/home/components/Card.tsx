@@ -73,8 +73,10 @@ const Card = (props: CardProps) => (
         ))}
       </View>
       <TouchableOpacity style={styles.titleSection}>
-        <Text style={styles.findOutWhyText}>{FIND_OUT_WHY}</Text>
-        <ArrowIcon />
+        <View style={styles.findOutWhyTextContainer}>
+          <Text style={styles.findOutWhyText}>{FIND_OUT_WHY}</Text>
+        </View>
+        <ArrowIcon style={styles.arrowIcon} />
       </TouchableOpacity>
     </View>
     <PieChart value={89} />
@@ -141,13 +143,18 @@ const styles = StyleSheet.create({
     borderRadius: 2,
     backgroundColor: PINK,
   },
+  findOutWhyTextContainer: {
+    borderBottomColor: LIGHT_BLUE,
+    borderBottomWidth: 1,
+  },
   findOutWhyText: {
     fontSize: 16,
     lineHeight: 24,
     fontWeight: '400',
     color: LIGHT_BLUE,
-    borderBottomColor: LIGHT_BLUE,
-    borderBottomWidth: 1,
+  },
+  arrowIcon: {
+    marginTop: 4,
   },
   pieChartBackground: {
     height: 108,
