@@ -1,6 +1,6 @@
 import React from 'react';
 import {View, StyleSheet, TouchableOpacity} from 'react-native';
-import Label from '../../../components/Label';
+import Label from '../../../../components/Label';
 import {
   ASH,
   BLACK,
@@ -9,13 +9,13 @@ import {
   GOLD,
   LIGHT_BLUE,
   PINK,
-} from '../../../utils/Colors';
+} from '../../../../utils/Colors';
 import {
   FIND_OUT_WHY,
   HAPPY_SCORE,
   LIVE_UPPERCASE,
-} from '../../../utils/Strings';
-import ArrowIcon from './ArrowIcon';
+} from '../../../../utils/Strings';
+import ArrowIcon from './components/ArrowIcon';
 
 interface CardProps {
   weekData: number[];
