@@ -20,24 +20,24 @@ const name = 'Derek';
 const weekData = [64, 47, 55, 62, 60, 64, 62];
 const labels = ['We', 'Th', 'Fr', 'Sa', 'Su', 'Mo', 'Tu'];
 const animatedValue = new Animated.Value(0);
-const runTiming = () =>
-  Animated.timing(animatedValue, {
-    duration: 500,
-    useNativeDriver: false,
-    toValue: 1,
-  }).start();
+const Timing = Animated.timing(animatedValue, {
+  duration: 500,
+  useNativeDriver: false,
+  toValue: 1,
+});
 
 const HomeScreen = () => {
   const [refreshing, setRefreshing] = useState(false);
   const onRefresh = () => {
     setRefreshing(true);
+    Timing.reset();
     setTimeout(() => {
-      runTiming();
+      Timing.start();
       setRefreshing(false);
     }, 1000);
   };
 
-  useEffect(() => runTiming(), []);
+  useEffect(() => Timing.start(), []);
 
   return (
     <ScreenBackground>
