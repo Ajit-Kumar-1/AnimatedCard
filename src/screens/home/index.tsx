@@ -45,6 +45,7 @@ const styles = StyleSheet.create({
     fontWeight: '900',
     fontSize: 28,
     lineHeight: 36,
+    fontFamily: 'Roboto',
   },
   mainSection: {
     backgroundColor: WHITE,
