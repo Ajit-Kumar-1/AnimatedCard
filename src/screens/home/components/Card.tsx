@@ -1,10 +1,10 @@
 import React from 'react';
-import {View, StyleSheet, Text, TouchableOpacity} from 'react-native';
+import {View, StyleSheet, TouchableOpacity} from 'react-native';
 import Label from '../../../components/Label';
 import {
   ASH,
   BLACK,
-  CEMENT,
+  CEMENT_BLUE,
   DARK_BLUE,
   GOLD,
   LIGHT_BLUE,
@@ -56,7 +56,9 @@ const Bar = (props: BarProps) => (
 
 const PieChart = (props: PieChartProps) => (
   <View style={styles.pieChartBackground}>
-    <Text style={styles.pieChartText}>{props.value.toString()}</Text>
+    <Label bold style={styles.pieChartText}>
+      {props.value.toString()}
+    </Label>
   </View>
 );
 
@@ -64,7 +66,7 @@ const Card = (props: CardProps) => (
   <View style={styles.container}>
     <View>
       <View style={styles.titleSection}>
-        <Text style={styles.title}>{HAPPY_SCORE}</Text>
+        <Label bold>{HAPPY_SCORE}</Label>
         <Label medium style={styles.liveText}>
           {LIVE_UPPERCASE}
         </Label>
@@ -102,13 +104,6 @@ const styles = StyleSheet.create({
   titleSection: {
     flexDirection: 'row',
     alignItems: 'center',
-  },
-  title: {
-    fontSize: 16,
-    lineHeight: 24,
-    fontWeight: '900',
-    color: CEMENT,
-    fontFamily: 'Roboto',
   },
   liveText: {
     color: PINK,
@@ -169,9 +164,7 @@ const styles = StyleSheet.create({
   pieChartText: {
     fontSize: 34,
     lineHeight: 42,
-    fontWeight: '900',
-    color: DARK_BLUE,
-    fontFamily: 'Roboto',
+    color: CEMENT_BLUE,
   },
 });
 

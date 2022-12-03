@@ -2,6 +2,7 @@ export const ASH = '#C4C4C4';
 export const BLACK = '#000000';
 export const BOTTOM_LINE = '#E5E4DE';
 export const CEMENT = '#323E48';
+export const CEMENT_BLUE = '#444F71';
 export const DARK_BLUE = '#003A70';
 export const GOLD = '#F5B335';
 export const LIGHT_BLUE = '#2173C4';
