@@ -1,12 +1,11 @@
 import React from 'react';
 import {View, StyleSheet} from 'react-native';
-import Sun from '../../../../assets/icons/sunBg.svg';
 import Cloud from '../../../../assets/icons/cloudBase.svg';
-import {CEMENT} from '../../../utils/Colors';
+import {CEMENT, GOLD} from '../../../utils/Colors';
 
 const WeatherIcon = () => (
   <View style={styles.container}>
-    <Sun width={8.5} height={7.5} style={styles.sun} />
+    <View style={styles.sun} />
     <Cloud width={18} height={11} style={styles.cloud} />
   </View>
 );
@@ -21,6 +20,9 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderRadius: 5,
     borderColor: CEMENT,
+    backgroundColor: GOLD,
+    width: 8.42,
+    height: 7.6,
   },
   cloud: {
     position: 'absolute',
