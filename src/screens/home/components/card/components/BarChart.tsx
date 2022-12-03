@@ -7,6 +7,7 @@ interface BarProps {
   value: number;
   text: string;
   isCurrent?: boolean;
+  animation: Animated.Value;
 }
 
 interface BarChartProps {
@@ -16,34 +17,41 @@ interface BarChartProps {
   animation: Animated.Value;
 }
 
-const Bar = (props: BarProps) => (
-  <View style={styles.barColumn}>
-    <View style={styles.barColumnMainSection}>
-      <View style={styles.barBase}>
-        <View
+const Bar = (props: BarProps) => {
+  return (
+    <View style={styles.barColumn}>
+      <View style={styles.barColumnMainSection}>
+        <View style={styles.barBase}>
+          <Animated.View
+            style={[
+              styles.bar,
+              {
+                height: props.value,
+                transform: [{scaleY: props.animation}],
+                backgroundColor: props.isCurrent ? PINK : GOLD,
+              },
+            ]}
+          />
+        </View>
+        <Label
+          medium
           style={[
-            styles.bar,
-            {
-              height: props.value,
-              backgroundColor: props.isCurrent ? PINK : GOLD,
-            },
-          ]}
-        />
+            styles.barText,
+            {color: props.isCurrent ? DARK_BLUE : BLACK},
+          ]}>
+          {props.text}
+        </Label>
       </View>
-      <Label
-        medium
-        style={[styles.barText, {color: props.isCurrent ? DARK_BLUE : BLACK}]}>
-        {props.text}
-      </Label>
+      {props.isCurrent ? <View style={styles.currentBarMarker} /> : null}
     </View>
-    {props.isCurrent ? <View style={styles.currentBarMarker} /> : null}
-  </View>
-);
+  );
+};
 
 const BarChart = (props: BarChartProps) => (
   <View style={[styles.barChartSection, props.style]}>
     {props.data.map((item, index) => (
       <Bar
+        animation={props.animation}
         key={`bar_${index}`}
         value={item}
         text={props.labels[index]}
