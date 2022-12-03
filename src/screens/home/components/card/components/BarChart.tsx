@@ -31,7 +31,6 @@ const Bar = (props: BarProps) => {
               styles.bar,
               {
                 height: height,
-                // transform: [{scaleY: props.animatedValue}],
                 backgroundColor: props.isCurrent ? PINK : GOLD,
               },
             ]}

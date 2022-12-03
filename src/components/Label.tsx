@@ -1,5 +1,5 @@
 import React from 'react';
-import {Text, StyleSheet, Platform, TextStyle} from 'react-native';
+import {Text, StyleSheet, Platform, TextStyle, Animated} from 'react-native';
 import {CEMENT} from '../utils/Colors';
 
 const isIOS = Platform.OS === 'ios';
@@ -9,17 +9,25 @@ interface LabelProps {
   style?: TextStyle;
   bold?: boolean;
   medium?: boolean;
+  animated?: boolean;
 }
 
-const Label = (props: LabelProps) => (
-  <Text
-    style={[
-      props.bold ? styles.bold : props.medium ? styles.medium : styles.regular,
-      props.style,
-    ]}>
-    {props.children}
-  </Text>
-);
+const Label = (props: LabelProps) => {
+  const TextComponent = props.animated ? Animated.Text : Text;
+  return (
+    <TextComponent
+      style={[
+        props.bold
+          ? styles.bold
+          : props.medium
+          ? styles.medium
+          : styles.regular,
+        props.style,
+      ]}>
+      {props.children}
+    </TextComponent>
+  );
+};
 
 const styles = StyleSheet.create({
   bold: {

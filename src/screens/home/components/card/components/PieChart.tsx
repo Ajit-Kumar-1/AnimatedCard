@@ -51,14 +51,23 @@ const Arc = (props: PieChartProps) => {
   );
 };
 
-const PieChart = (props: PieChartProps) => (
-  <View style={styles.pieChartBackground}>
-    <Arc {...props} />
-    <Label bold style={styles.pieChartText}>
-      {props.value.toString()}
-    </Label>
-  </View>
-);
+const PieChart = (props: PieChartProps) => {
+  const scale = props.animatedValue.interpolate({
+    inputRange: [0, 1],
+    outputRange: [0, 1],
+  });
+  return (
+    <View style={styles.pieChartBackground}>
+      <Arc {...props} />
+      <Label
+        animated
+        bold
+        style={[styles.pieChartText, {transform: [{scale: scale}]}]}>
+        {props.value.toString()}
+      </Label>
+    </View>
+  );
+};
 
 const styles = StyleSheet.create({
   pieChartBackground: {
