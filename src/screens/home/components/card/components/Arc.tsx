@@ -11,8 +11,7 @@ const cx = size / 2;
 const cy = size / 2;
 const A = PI * 2;
 const startAngle = PI * 0.5;
-const endAngle = PI * 1;
-// A rx ry x-axis-rotation large-arc-flag sweep-flag x y
+const endAngle = PI * 0.501;
 const x1 = cx - r * cos(startAngle);
 const y1 = -r * sin(startAngle) + cy;
 const x2 = cx - r * cos(endAngle);
@@ -26,10 +25,10 @@ interface CircularPogressProps {
 export default ({progress}: CircularPogressProps) => {
   const circumference = r * A;
   const α = progress.interpolate({
-    inputRange: [0, 100],
+    inputRange: [0, 140],
     outputRange: [A, 0],
   });
-  const strokeDashoffset = Animated.multiply(α, r);
+  const strokeDashoffset = Animated.multiply(α, -r);
   return (
     <Svg width={size} height={size} style={styles.arc}>
       <Defs>
