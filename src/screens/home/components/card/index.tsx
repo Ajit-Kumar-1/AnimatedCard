@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, StyleSheet, TouchableOpacity} from 'react-native';
+import {View, StyleSheet, TouchableOpacity, Animated} from 'react-native';
 import Label from '../../../../components/Label';
 import {LIGHT_BLUE, PINK} from '../../../../utils/Colors';
 import {
@@ -16,30 +16,38 @@ interface CardProps {
   barChartLabels: string[];
 }
 
-const Card = (props: CardProps) => (
-  <View style={styles.container}>
-    <View>
-      <View style={styles.titleSection}>
-        <Label bold>{HAPPY_SCORE}</Label>
-        <Label medium style={styles.liveText}>
-          {LIVE_UPPERCASE}
-        </Label>
-      </View>
-      <BarChart
-        style={styles.barChart}
-        data={props.barChartData}
-        labels={props.barChartLabels}
-      />
-      <TouchableOpacity style={styles.titleSection}>
-        <View style={styles.findOutWhyTextContainer}>
-          <Label style={styles.findOutWhyText}>{FIND_OUT_WHY}</Label>
+const Card = (props: CardProps) => {
+  const animatedValue = new Animated.Value(0);
+  Animated.timing(animatedValue, {
+    duration: 1000,
+    useNativeDriver: true,
+    toValue: 1,
+  }).start();
+  return (
+    <View style={styles.container}>
+      <View>
+        <View style={styles.titleSection}>
+          <Label bold>{HAPPY_SCORE}</Label>
+          <Label medium style={styles.liveText}>
+            {LIVE_UPPERCASE}
+          </Label>
         </View>
-        <ArrowIcon style={styles.arrowIcon} />
-      </TouchableOpacity>
+        <BarChart
+          style={styles.barChart}
+          data={props.barChartData}
+          labels={props.barChartLabels}
+        />
+        <TouchableOpacity style={styles.titleSection}>
+          <View style={styles.findOutWhyTextContainer}>
+            <Label style={styles.findOutWhyText}>{FIND_OUT_WHY}</Label>
+          </View>
+          <ArrowIcon style={styles.arrowIcon} />
+        </TouchableOpacity>
+      </View>
+      <PieChart animation={animatedValue} value={89} />
     </View>
-    <PieChart value={89} />
-  </View>
-);
+  );
+};
 
 const styles = StyleSheet.create({
   container: {
