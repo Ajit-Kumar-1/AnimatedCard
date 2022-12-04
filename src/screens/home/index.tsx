@@ -46,6 +46,7 @@ const tertiaryAnimation = Animated.timing(tertiaryAnimationValue, {
 const HomeScreen = () => {
   const [refreshing, setRefreshing] = useState(false);
   const [animationListenerValue, setAnimationListenerValue] = useState(0);
+
   const onRefresh = () => {
     setRefreshing(true);
     const timeout = setTimeout(() => {
@@ -61,6 +62,7 @@ const HomeScreen = () => {
       clearTimeout(timeout);
     }, 1000);
   };
+
   const handWaveAngle = tertiaryAnimationValue.interpolate({
     inputRange: [0, 0.5, 1],
     outputRange: ['0deg', '60deg', '0deg'],
@@ -85,7 +87,7 @@ const HomeScreen = () => {
         refreshControl={
           <RefreshControl
             progressViewOffset={useSafeAreaInsets().top * 0.8}
-            style={{marginBottom: useSafeAreaInsets().top}}
+            style={{marginBottom: useSafeAreaInsets().top * 0.6}}
             refreshing={refreshing}
             onRefresh={onRefresh}
           />
