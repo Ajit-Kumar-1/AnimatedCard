@@ -25,6 +25,7 @@ const labels = ['We', 'Th', 'Fr', 'Sa', 'Su', 'Mo', 'Tu'];
 
 const primaryAnimationValue = new Animated.Value(0);
 const secondaryAnimationValue = new Animated.Value(0);
+const tertiaryAnimationValue = new Animated.Value(0);
 const primaryAnimation = Animated.timing(primaryAnimationValue, {
   duration: 500,
   useNativeDriver: false,
@@ -32,6 +33,11 @@ const primaryAnimation = Animated.timing(primaryAnimationValue, {
   toValue: 1,
 });
 const secondaryAnimation = Animated.timing(secondaryAnimationValue, {
+  duration: 400,
+  useNativeDriver: false,
+  toValue: 1,
+});
+const tertiaryAnimation = Animated.timing(tertiaryAnimationValue, {
   duration: 400,
   useNativeDriver: false,
   toValue: 1,
@@ -45,18 +51,27 @@ const HomeScreen = () => {
     const timeout = setTimeout(() => {
       primaryAnimation.reset();
       secondaryAnimation.reset();
-      Animated.sequence([primaryAnimation, secondaryAnimation]).start();
+      tertiaryAnimation.reset();
+      Animated.sequence([
+        primaryAnimation,
+        secondaryAnimation,
+        tertiaryAnimation,
+      ]).start();
       setRefreshing(false);
       clearTimeout(timeout);
     }, 1000);
   };
-  const handWaveAngle = secondaryAnimationValue.interpolate({
+  const handWaveAngle = tertiaryAnimationValue.interpolate({
     inputRange: [0, 0.5, 1],
     outputRange: ['0deg', '60deg', '0deg'],
   });
 
   useEffect(() => {
-    Animated.sequence([primaryAnimation, secondaryAnimation]).start();
+    Animated.sequence([
+      primaryAnimation,
+      secondaryAnimation,
+      tertiaryAnimation,
+    ]).start();
     primaryAnimationValue.addListener(response =>
       setAnimationListenerValue(response.value),
     );
