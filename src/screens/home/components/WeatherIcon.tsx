@@ -13,10 +13,16 @@ const WeatherIcon = (props: WeatherIconProps) => {
     inputRange: [0, 1],
     outputRange: [-3, 1.5],
   });
+  const cloudOpacity = props.animatedValue.interpolate({
+    inputRange: [0, 1],
+    outputRange: [styles.cloud.opacity, 1],
+  });
   return (
     <View style={styles.container}>
       <Animated.View style={[styles.sun, {bottom: sunPosition}]} />
-      <Cloud width={18} height={11} style={styles.cloud} />
+      <Animated.View style={[styles.cloud, {opacity: cloudOpacity}]}>
+        <Cloud width={18} height={11} />
+      </Animated.View>
       <Animated.View
         style={[styles.shine, styles.shine1, {opacity: props.animatedValue}]}
       />
@@ -56,6 +62,7 @@ const styles = StyleSheet.create({
   },
   cloud: {
     position: 'absolute',
+    opacity: 0.4,
   },
   shine: {
     position: 'absolute',
