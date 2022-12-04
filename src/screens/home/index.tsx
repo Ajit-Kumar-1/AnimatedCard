@@ -123,7 +123,6 @@ const styles = StyleSheet.create({
   },
   scrollView: {
     backgroundColor: SCREEN_BACKGROUND,
-    flex: 1,
   },
   title: {
     marginHorizontal: 24,
