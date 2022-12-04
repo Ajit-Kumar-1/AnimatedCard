@@ -50,6 +50,10 @@ const HomeScreen = () => {
       clearTimeout(timeout);
     }, 1000);
   };
+  const handWaveAngle = secondaryAnimationValue.interpolate({
+    inputRange: [0, 0.5, 1],
+    outputRange: ['0deg', '60deg', '0deg'],
+  });
 
   useEffect(() => {
     Animated.sequence([primaryAnimation, secondaryAnimation]).start();
@@ -77,7 +81,18 @@ const HomeScreen = () => {
             </Label>
             <View style={styles.welcomeSection}>
               <View>
-                <Label bold style={styles.greeting}>{`Hi ${name} 👋`}</Label>
+                <View style={styles.greetingSection}>
+                  <Label bold style={styles.greeting}>{`Hi ${name} `}</Label>
+                  <Label
+                    animated
+                    bold
+                    style={[
+                      styles.greeting,
+                      {transform: [{rotate: handWaveAngle}]},
+                    ]}>
+                    {'👋'}
+                  </Label>
+                </View>
                 <Label style={styles.latestUpdatesText}>
                   {HERE_ARE_YOUR_LATEST_UPDATES}
                 </Label>
@@ -116,6 +131,9 @@ const styles = StyleSheet.create({
     marginBottom: 26,
     fontSize: 28,
     lineHeight: 36,
+  },
+  greetingSection: {
+    flexDirection: 'row',
   },
   mainSection: {
     backgroundColor: WHITE,
