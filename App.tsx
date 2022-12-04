@@ -27,7 +27,7 @@ import {
 
 const Tab = createBottomTabNavigator();
 
-const App = () => (
+const App: () => JSX.Element = () => (
   <NavigationContainer>
     <Tab.Navigator
       screenOptions={{
@@ -92,7 +92,7 @@ const App = () => (
   </NavigationContainer>
 );
 
-const styles = StyleSheet.create({
+const styles: any = StyleSheet.create({
   profileIcon: {
     alignItems: 'center',
   },
