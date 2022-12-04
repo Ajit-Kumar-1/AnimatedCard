@@ -48,7 +48,8 @@ const tertiaryAnimation = Animated.timing(tertiaryAnimationValue, {
 
 const HomeScreen = () => {
   const [refreshing, setRefreshing] = useState(false);
-  const [animationListenerValue, setAnimationListenerValue] = useState(0);
+  const [primaryAnimationListenerValue, secondaryAnimationListenerValue] =
+    useState(0);
 
   const startAnimations = () => {
     Animated.sequence([
@@ -57,7 +58,7 @@ const HomeScreen = () => {
       tertiaryAnimation,
     ]).start();
     primaryAnimationValue.addListener(response =>
-      setAnimationListenerValue(response.value),
+      secondaryAnimationListenerValue(response.value),
     );
   };
 
@@ -142,7 +143,7 @@ const HomeScreen = () => {
             </View>
             <Card
               animatedValue={primaryAnimationValue}
-              animationListenerValue={animationListenerValue}
+              animationListenerValue={primaryAnimationListenerValue}
               barChartData={weekData}
               barChartLabels={labels}
               pieChartScore={todayScore}
