@@ -133,22 +133,22 @@ const styles = StyleSheet.create({
     top: -5,
   },
   shine3: {
-    transform: [{rotate: '32deg'}],
+    transform: [{rotate: '32deg', scale: 0}],
     start: '92%',
     top: -4.5,
   },
   shine4: {
-    transform: [{rotate: '62deg'}],
+    transform: [{rotate: '62deg', scale: 0}],
     top: -2,
     start: '105%',
   },
   shine5: {
-    transform: [{rotate: '90deg'}],
+    transform: [{rotate: '90deg', scale: 0}],
     start: '109%',
     top: 1.2,
   },
   shine6: {
-    transform: [{rotate: '118deg'}],
+    transform: [{rotate: '118deg', scale: 0}],
     start: '105%',
     top: 4,
   },
