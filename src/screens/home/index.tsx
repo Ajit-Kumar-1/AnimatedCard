@@ -20,41 +20,50 @@ import ScreenBackground from '../../components/ScreenBackground';
 import Label from '../../components/Label';
 import {Easing} from 'react-native';
 
-const temperature = 24;
-const name = 'Derek';
-const weekData = [64, 47, 55, 62, 60, 64, 62];
-const todayScore = 89;
-const labels = ['We', 'Th', 'Fr', 'Sa', 'Su', 'Mo', 'Tu'];
+const temperature: number = 24;
+const name: string = 'Derek';
+const weekData: number[] = [64, 47, 55, 62, 60, 64, 62];
+const todayScore: number = 89;
+const labels: string[] = ['We', 'Th', 'Fr', 'Sa', 'Su', 'Mo', 'Tu'];
 
-const primaryAnimationValue = new Animated.Value(0);
-const secondaryAnimationValue = new Animated.Value(0);
-const tertiaryAnimationValue = new Animated.Value(0);
-const primaryAnimationDuration = 500;
-const secondaryAnimationDuration = 400;
-const tertiaryAnimationDuration = 400;
-const primaryAnimation = Animated.timing(primaryAnimationValue, {
-  duration: primaryAnimationDuration,
-  useNativeDriver: false,
-  easing: time => Easing.ease(time),
-  toValue: 1,
-});
-const secondaryAnimation = Animated.timing(secondaryAnimationValue, {
-  duration: secondaryAnimationDuration,
-  useNativeDriver: false,
-  toValue: 1,
-});
-const tertiaryAnimation = Animated.timing(tertiaryAnimationValue, {
-  duration: tertiaryAnimationDuration,
-  useNativeDriver: false,
-  toValue: 1,
-});
+const primaryAnimationValue: Animated.Value = new Animated.Value(0);
+const secondaryAnimationValue: Animated.Value = new Animated.Value(0);
+const tertiaryAnimationValue: Animated.Value = new Animated.Value(0);
+const primaryAnimationDuration: number = 500;
+const secondaryAnimationDuration: number = 400;
+const tertiaryAnimationDuration: number = 400;
+const primaryAnimation: Animated.CompositeAnimation = Animated.timing(
+  primaryAnimationValue,
+  {
+    duration: primaryAnimationDuration,
+    useNativeDriver: false,
+    easing: time => Easing.ease(time),
+    toValue: 1,
+  },
+);
+const secondaryAnimation: Animated.CompositeAnimation = Animated.timing(
+  secondaryAnimationValue,
+  {
+    duration: secondaryAnimationDuration,
+    useNativeDriver: false,
+    toValue: 1,
+  },
+);
+const tertiaryAnimation: Animated.CompositeAnimation = Animated.timing(
+  tertiaryAnimationValue,
+  {
+    duration: tertiaryAnimationDuration,
+    useNativeDriver: false,
+    toValue: 1,
+  },
+);
 
-const HomeScreen = () => {
+const HomeScreen: () => JSX.Element = () => {
   const [refreshing, setRefreshing] = useState(false);
   const [primaryAnimationListenerValue, secondaryAnimationListenerValue] =
     useState(0);
 
-  const startAnimations = () => {
+  const startAnimations: () => void = () => {
     Animated.sequence([
       primaryAnimation,
       secondaryAnimation,
@@ -65,7 +74,7 @@ const HomeScreen = () => {
     );
   };
 
-  const stopAnimations = () => {
+  const stopAnimations: () => void = () => {
     tertiaryAnimation.reset();
     secondaryAnimation.reset();
     primaryAnimation.reset();
@@ -74,7 +83,7 @@ const HomeScreen = () => {
     primaryAnimationValue.removeAllListeners();
   };
 
-  const onRefresh = () => {
+  const onRefresh: () => void = () => {
     setRefreshing(true);
     const timeout = setTimeout(() => {
       stopAnimations();
@@ -84,10 +93,11 @@ const HomeScreen = () => {
     }, 1000);
   };
 
-  const handWaveAngle = tertiaryAnimationValue.interpolate({
-    inputRange: [0, 0.5, 1],
-    outputRange: ['0deg', '60deg', '0deg'],
-  });
+  const handWaveAngle: Animated.AnimatedInterpolation<string | number> =
+    tertiaryAnimationValue.interpolate({
+      inputRange: [0, 0.5, 1],
+      outputRange: ['0deg', '60deg', '0deg'],
+    });
 
   useEffect(() => {
     startAnimations();
@@ -159,7 +169,7 @@ const HomeScreen = () => {
   );
 };
 
-const styles = StyleSheet.create({
+const styles: any = StyleSheet.create({
   background: {
     backgroundColor: WHITE,
   },
