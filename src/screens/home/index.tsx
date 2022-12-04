@@ -24,7 +24,7 @@ const labels = ['We', 'Th', 'Fr', 'Sa', 'Su', 'Mo', 'Tu'];
 
 const animatedValue = new Animated.Value(0);
 const Timing = Animated.timing(animatedValue, {
-  duration: 500,
+  duration: 2000,
   useNativeDriver: false,
   toValue: 1,
 });

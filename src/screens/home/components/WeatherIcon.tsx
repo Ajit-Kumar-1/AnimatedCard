@@ -9,9 +9,13 @@ interface WeatherIconProps {
 }
 
 const WeatherIcon = (props: WeatherIconProps) => {
+  const sunPosition = props.animatedValue.interpolate({
+    inputRange: [0, 1],
+    outputRange: [-3, 1.5],
+  });
   return (
     <View style={styles.container}>
-      <View style={styles.sun} />
+      <Animated.View style={[styles.sun, {bottom: sunPosition}]} />
       <Cloud width={18} height={11} style={styles.cloud} />
       <Animated.View
         style={[styles.shine, styles.shine1, {opacity: props.animatedValue}]}
