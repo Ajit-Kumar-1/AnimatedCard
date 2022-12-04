@@ -7,7 +7,9 @@ interface ScreenContainerProps {
   children?: Element;
 }
 
-const ScreenBackground = (props: ScreenContainerProps) => (
+const ScreenBackground: (props: ScreenContainerProps) => JSX.Element = (
+  props: ScreenContainerProps,
+) => (
   <View style={[styles.container, props.style]}>
     <>
       {props.children}
@@ -16,7 +18,7 @@ const ScreenBackground = (props: ScreenContainerProps) => (
   </View>
 );
 
-const styles = StyleSheet.create({
+const styles: any = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: SCREEN_BACKGROUND,

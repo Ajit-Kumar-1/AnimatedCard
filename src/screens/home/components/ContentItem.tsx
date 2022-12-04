@@ -2,7 +2,7 @@ import React from 'react';
 import {View, StyleSheet, Image} from 'react-native';
 import {LIGHT_GRAY, PRIMARY_GRAY, WHITE} from '../../../utils/Colors';
 
-const ContentItem = () => (
+const ContentItem: () => JSX.Element = () => (
   <View style={styles.container}>
     <View style={styles.topHalf}>
       <Image style={styles.image} />
@@ -19,7 +19,7 @@ const ContentItem = () => (
   </View>
 );
 
-const styles = StyleSheet.create({
+const styles: any = StyleSheet.create({
   container: {
     margin: 24,
     paddingTop: 28,

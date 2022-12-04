@@ -9,15 +9,19 @@ interface WeatherIconProps {
   secondaryAnimatedValue: Animated.Value;
 }
 
-const WeatherIcon = (props: WeatherIconProps) => {
-  const sunPosition = props.primaryAnimatedValue.interpolate({
-    inputRange: [0, 1],
-    outputRange: [-3, 1.5],
-  });
-  const cloudOpacity = props.secondaryAnimatedValue.interpolate({
-    inputRange: [0, 1],
-    outputRange: [styles.cloud.opacity, 1],
-  });
+const WeatherIcon: (props: WeatherIconProps) => JSX.Element = (
+  props: WeatherIconProps,
+) => {
+  const sunPosition: Animated.AnimatedInterpolation<number> =
+    props.primaryAnimatedValue.interpolate({
+      inputRange: [0, 1],
+      outputRange: [-3, 1.5],
+    });
+  const cloudOpacity: Animated.AnimatedInterpolation<number> =
+    props.secondaryAnimatedValue.interpolate({
+      inputRange: [0, 1],
+      outputRange: [styles.cloud.opacity, 1],
+    });
   return (
     <View style={styles.container}>
       <Animated.View style={[styles.sun, {bottom: sunPosition}]} />
@@ -97,7 +101,7 @@ const WeatherIcon = (props: WeatherIconProps) => {
   );
 };
 
-const styles = StyleSheet.create({
+const styles: any = StyleSheet.create({
   container: {
     width: 19,
     bottom: 4,

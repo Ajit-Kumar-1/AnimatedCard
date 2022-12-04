@@ -7,14 +7,16 @@ interface ArrowIconProps {
   style?: FlexStyle;
 }
 
-const ArrowIcon = (props: ArrowIconProps) => (
+const ArrowIcon: (props: ArrowIconProps) => JSX.Element = (
+  props: ArrowIconProps,
+) => (
   <View style={[{...props.style}, styles.container]}>
     <ArrowAxis />
     <ArrowHead style={styles.arrowHead} />
   </View>
 );
 
-const styles = StyleSheet.create({
+const styles: any = StyleSheet.create({
   container: {
     alignItems: 'center',
     flexDirection: 'row',

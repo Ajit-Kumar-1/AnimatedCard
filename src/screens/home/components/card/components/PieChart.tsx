@@ -20,13 +20,18 @@ const x2 = cx - r * cos(endAngle);
 const y2 = -r * sin(endAngle) + cy;
 const d = `M ${x1} ${y1} A ${r} ${r} 0 1 0 ${x2} ${y2}`;
 
+interface ArcProps {
+  animatedValue: Animated.Value;
+  score: number;
+}
+
 interface PieChartProps {
   animationListenerValue: number;
   animatedValue: Animated.Value;
   score: number;
 }
 
-const Arc = (props: PieChartProps) => {
+const Arc: (props: ArcProps) => JSX.Element = (props: ArcProps) => {
   const circumference = r * A;
   const α = props.animatedValue.interpolate({
     inputRange: [0, 140 / props.score],
@@ -52,7 +57,9 @@ const Arc = (props: PieChartProps) => {
   );
 };
 
-const PieChart = (props: PieChartProps) => (
+const PieChart: (props: PieChartProps) => JSX.Element = (
+  props: PieChartProps,
+) => (
   <View style={styles.pieChartBackground}>
     <Arc {...props} />
     <Label
@@ -67,7 +74,7 @@ const PieChart = (props: PieChartProps) => (
   </View>
 );
 
-const styles = StyleSheet.create({
+const styles: any = StyleSheet.create({
   pieChartBackground: {
     height: 108,
     width: 108,

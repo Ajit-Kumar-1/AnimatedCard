@@ -17,7 +17,7 @@ interface BarChartProps {
   animatedValue: Animated.Value;
 }
 
-const Bar = (props: BarProps) => {
+const Bar: (props: BarProps) => JSX.Element = (props: BarProps) => {
   const height = props.animatedValue.interpolate({
     inputRange: [0, 1],
     outputRange: [0, props.value],
@@ -50,7 +50,9 @@ const Bar = (props: BarProps) => {
   );
 };
 
-const BarChart = (props: BarChartProps) => (
+const BarChart: (props: BarChartProps) => JSX.Element = (
+  props: BarChartProps,
+) => (
   <View style={[styles.barChartSection, props.style]}>
     {props.data.map((item, index) => (
       <Bar
@@ -64,7 +66,7 @@ const BarChart = (props: BarChartProps) => (
   </View>
 );
 
-const styles = StyleSheet.create({
+const styles: any = StyleSheet.create({
   barChartSection: {
     flexDirection: 'row',
     justifyContent: 'space-around',

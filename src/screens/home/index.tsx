@@ -4,6 +4,7 @@ import {
   StyleSheet,
   SafeAreaView,
   Animated,
+  Easing,
   ScrollView,
   RefreshControl,
 } from 'react-native';
@@ -18,7 +19,6 @@ import WeatherIcon from './components/WeatherIcon';
 import ContentItem from './components/ContentItem';
 import ScreenBackground from '../../components/ScreenBackground';
 import Label from '../../components/Label';
-import {Easing} from 'react-native';
 
 const temperature: number = 24;
 const name: string = 'Derek';

@@ -2,7 +2,7 @@ import React from 'react';
 import {Text, StyleSheet, Platform, Animated} from 'react-native';
 import {CEMENT} from '../utils/Colors';
 
-const isIOS = Platform.OS === 'ios';
+const isIOS: boolean = Platform.OS === 'ios';
 
 interface LabelProps {
   children: string;
@@ -12,7 +12,7 @@ interface LabelProps {
   animated?: boolean;
 }
 
-const Label = (props: LabelProps) => {
+const Label: (props: LabelProps) => JSX.Element = (props: LabelProps) => {
   const TextComponent = props.animated ? Animated.Text : Text;
   return (
     <TextComponent
@@ -29,7 +29,7 @@ const Label = (props: LabelProps) => {
   );
 };
 
-const styles = StyleSheet.create({
+const styles: any = StyleSheet.create({
   bold: {
     fontFamily: isIOS ? 'Roboto' : 'Roboto-Bold',
     fontWeight: isIOS ? '900' : undefined,

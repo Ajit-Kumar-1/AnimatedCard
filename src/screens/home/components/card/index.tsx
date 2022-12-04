@@ -19,7 +19,7 @@ interface CardProps {
   pieChartScore: number;
 }
 
-const Card = (props: CardProps) => (
+const Card: (props: CardProps) => JSX.Element = (props: CardProps) => (
   <Animated.View style={[styles.container, {opacity: props.animatedValue}]}>
     <View>
       <View style={styles.titleSection}>
@@ -49,7 +49,7 @@ const Card = (props: CardProps) => (
   </Animated.View>
 );
 
-const styles = StyleSheet.create({
+const styles: any = StyleSheet.create({
   container: {
     width: '100%',
     paddingHorizontal: 21,
