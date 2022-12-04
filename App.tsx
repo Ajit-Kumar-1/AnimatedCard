@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {View, StyleSheet} from 'react-native';
+import {View, StyleSheet, Platform} from 'react-native';
 import {NavigationContainer} from '@react-navigation/native';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import HomeScreen from './src/screens/home';
@@ -30,8 +30,8 @@ const App = () => (
         tabBarLabelStyle: {
           fontSize: 12,
           lineHeight: 20,
-          fontWeight: '400',
-          fontFamily: 'Roboto',
+          fontFamily: Platform.OS === 'ios' ? 'Roboto' : 'Roboto-Regular',
+          fontWeight: Platform.OS === 'ios' ? '400' : undefined,
         },
       }}>
       <Tab.Screen
