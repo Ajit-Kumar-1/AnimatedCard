@@ -18,6 +18,12 @@ import MyBookingsIcon from './assets/icons/my_bookings.svg';
 import BookingIcon from './assets/icons/booking.svg';
 import ProfileIconTopHalf from './assets/icons/profile_1.svg';
 import ProfileIconBottomHalf from './assets/icons/profile_2.svg';
+import {
+  BOOKING_NAVIGATION_KEY,
+  HOME_NAVIGATION_KEY,
+  MY_BOOKINGS_NAVIGATION_KEY,
+  PROFILE_NAVIGATION_KEY,
+} from './src/utils/Strings';
 
 const Tab = createBottomTabNavigator();
 
@@ -40,36 +46,40 @@ const App = () => (
         },
       }}>
       <Tab.Screen
-        name={HOME}
+        name={HOME_NAVIGATION_KEY}
         component={HomeScreen}
         options={{
+          headerTitle: HOME,
           tabBarIcon: ({focused}) => (
             <HomeIcon color={focused ? GOLD : LIGHT_GRAY} />
           ),
         }}
       />
       <Tab.Screen
-        name={BOOKING}
+        name={BOOKING_NAVIGATION_KEY}
         component={BookingScreen}
         options={{
+          headerTitle: BOOKING,
           tabBarIcon: ({focused}) => (
             <BookingIcon color={focused ? GOLD : LIGHT_GRAY} />
           ),
         }}
       />
       <Tab.Screen
-        name={MY_BOOKINGS}
+        name={MY_BOOKINGS_NAVIGATION_KEY}
         component={MyBookingsScreen}
         options={{
+          headerTitle: MY_BOOKINGS,
           tabBarIcon: ({focused}) => (
             <MyBookingsIcon color={focused ? GOLD : LIGHT_GRAY} />
           ),
         }}
       />
       <Tab.Screen
-        name={PROFILE}
+        name={PROFILE_NAVIGATION_KEY}
         component={ProfileScreen}
         options={{
+          headerTitle: PROFILE,
           tabBarIcon: ({focused}) => (
             <View style={styles.profileIcon}>
               <ProfileIconTopHalf color={focused ? GOLD : LIGHT_GRAY} />
