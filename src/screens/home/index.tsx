@@ -21,6 +21,7 @@ const name = 'Derek';
 const weekData = [64, 47, 55, 62, 60, 64, 62];
 const todayScore = 89;
 const labels = ['We', 'Th', 'Fr', 'Sa', 'Su', 'Mo', 'Tu'];
+
 const animatedValue = new Animated.Value(0);
 const Timing = Animated.timing(animatedValue, {
   duration: 500,
@@ -30,7 +31,7 @@ const Timing = Animated.timing(animatedValue, {
 
 const HomeScreen = () => {
   const [refreshing, setRefreshing] = useState(false);
-  const [score, setScore] = useState(0);
+  const [animationListenerValue, setAnimationListenerValue] = useState(0);
   const onRefresh = () => {
     setRefreshing(true);
     const timeout = setTimeout(() => {
@@ -44,7 +45,7 @@ const HomeScreen = () => {
   useEffect(() => {
     Timing.start();
     animatedValue.addListener(response =>
-      setScore(parseInt(response.value * todayScore + '', 10)),
+      setAnimationListenerValue(response.value),
     );
   }, []);
 
@@ -79,9 +80,10 @@ const HomeScreen = () => {
             </View>
             <Card
               animatedValue={animatedValue}
-              score={score}
+              animationListenerValue={animationListenerValue}
               barChartData={weekData}
               barChartLabels={labels}
+              pieChartScore={todayScore}
             />
           </SafeAreaView>
         </View>

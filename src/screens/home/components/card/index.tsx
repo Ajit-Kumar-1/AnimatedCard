@@ -15,7 +15,8 @@ interface CardProps {
   barChartData: number[];
   barChartLabels: string[];
   animatedValue: Animated.Value;
-  score: number;
+  animationListenerValue: number;
+  pieChartScore: number;
 }
 
 const Card = (props: CardProps) => (
@@ -40,7 +41,11 @@ const Card = (props: CardProps) => (
         <ArrowIcon style={styles.arrowIcon} />
       </TouchableOpacity>
     </View>
-    <PieChart animatedValue={props.animatedValue} value={props.score} />
+    <PieChart
+      animatedValue={props.animatedValue}
+      animationListenerValue={props.animationListenerValue}
+      score={props.pieChartScore}
+    />
   </View>
 );
 

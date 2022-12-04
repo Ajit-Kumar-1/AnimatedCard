@@ -21,14 +21,15 @@ const y2 = -r * sin(endAngle) + cy;
 const d = `M ${x1} ${y1} A ${r} ${r} 0 1 0 ${x2} ${y2}`;
 
 interface PieChartProps {
-  value: number;
+  animationListenerValue: number;
   animatedValue: Animated.Value;
+  score: number;
 }
 
 const Arc = (props: PieChartProps) => {
   const circumference = r * A;
   const α = props.animatedValue.interpolate({
-    inputRange: [0, 140 / props.value],
+    inputRange: [0, 140 / props.score],
     outputRange: [A, 0],
   });
   const strokeDashoffset = Animated.multiply(α, -r);
@@ -61,7 +62,7 @@ const PieChart = (props: PieChartProps) => (
         styles.pieChartText,
         {transform: [{scale: props.animatedValue}]},
       ]}>
-      {props.value.toString()}
+      {parseInt(props.animationListenerValue * props.score + '', 10).toString()}
     </Label>
   </View>
 );
