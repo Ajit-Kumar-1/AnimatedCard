@@ -26,19 +26,22 @@ const labels = ['We', 'Th', 'Fr', 'Sa', 'Su', 'Mo', 'Tu'];
 const primaryAnimationValue = new Animated.Value(0);
 const secondaryAnimationValue = new Animated.Value(0);
 const tertiaryAnimationValue = new Animated.Value(0);
+const primaryAnimationDuration = 500;
+const secondaryAnimationDuration = 400;
+const tertiaryAnimationDuration = 400;
 const primaryAnimation = Animated.timing(primaryAnimationValue, {
-  duration: 500,
+  duration: primaryAnimationDuration,
   useNativeDriver: false,
   easing: time => Easing.ease(time),
   toValue: 1,
 });
 const secondaryAnimation = Animated.timing(secondaryAnimationValue, {
-  duration: 400,
+  duration: secondaryAnimationDuration,
   useNativeDriver: false,
   toValue: 1,
 });
 const tertiaryAnimation = Animated.timing(tertiaryAnimationValue, {
-  duration: 400,
+  duration: tertiaryAnimationDuration,
   useNativeDriver: false,
   toValue: 1,
 });
@@ -47,17 +50,31 @@ const HomeScreen = () => {
   const [refreshing, setRefreshing] = useState(false);
   const [animationListenerValue, setAnimationListenerValue] = useState(0);
 
+  const startAnimations = () => {
+    Animated.sequence([
+      primaryAnimation,
+      secondaryAnimation,
+      tertiaryAnimation,
+    ]).start();
+    primaryAnimationValue.addListener(response =>
+      setAnimationListenerValue(response.value),
+    );
+  };
+
+  const stopAnimations = () => {
+    primaryAnimation.reset();
+    secondaryAnimation.reset();
+    tertiaryAnimation.reset();
+    primaryAnimationValue.removeAllListeners();
+    secondaryAnimationValue.removeAllListeners();
+    tertiaryAnimationValue.removeAllListeners();
+  };
+
   const onRefresh = () => {
     setRefreshing(true);
     const timeout = setTimeout(() => {
-      primaryAnimation.reset();
-      secondaryAnimation.reset();
-      tertiaryAnimation.reset();
-      Animated.sequence([
-        primaryAnimation,
-        secondaryAnimation,
-        tertiaryAnimation,
-      ]).start();
+      stopAnimations();
+      startAnimations();
       setRefreshing(false);
       clearTimeout(timeout);
     }, 1000);
@@ -69,21 +86,14 @@ const HomeScreen = () => {
   });
 
   useEffect(() => {
-    Animated.sequence([
-      primaryAnimation,
-      secondaryAnimation,
-      tertiaryAnimation,
-    ]).start();
-    primaryAnimationValue.addListener(response =>
-      setAnimationListenerValue(response.value),
-    );
+    startAnimations();
   }, []);
 
   useEffect(() => {
     const timeout = setTimeout(() => {
-      primaryAnimationValue.removeAllListeners();
+      stopAnimations();
       clearTimeout(timeout);
-    }, 1000);
+    }, primaryAnimationDuration + secondaryAnimationDuration + tertiaryAnimationDuration);
   }, []);
 
   return (
