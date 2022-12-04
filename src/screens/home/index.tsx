@@ -15,6 +15,7 @@ import WeatherIcon from './components/WeatherIcon';
 import ContentItem from './components/ContentItem';
 import ScreenBackground from '../../components/ScreenBackground';
 import Label from '../../components/Label';
+import {Easing} from 'react-native';
 
 const temperature = 24;
 const name = 'Derek';
@@ -27,6 +28,7 @@ const secondaryAnimationValue = new Animated.Value(0);
 const primaryAnimation = Animated.timing(primaryAnimationValue, {
   duration: 500,
   useNativeDriver: false,
+  easing: time => Easing.ease(time),
   toValue: 1,
 });
 const secondaryAnimation = Animated.timing(secondaryAnimationValue, {
