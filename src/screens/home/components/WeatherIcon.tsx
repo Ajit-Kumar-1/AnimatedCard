@@ -24,22 +24,64 @@ const WeatherIcon = (props: WeatherIconProps) => {
         <Cloud width={18} height={11} />
       </Animated.View>
       <Animated.View
-        style={[styles.shine, styles.shine1, {opacity: props.animatedValue}]}
+        style={[
+          styles.shine,
+          styles.shine1,
+          {
+            opacity: props.animatedValue,
+            transform: [{scale: props.animatedValue}, {rotate: '-33deg'}],
+          },
+        ]}
       />
       <Animated.View
-        style={[styles.shine, styles.shine2, {opacity: props.animatedValue}]}
+        style={[
+          styles.shine,
+          styles.shine2,
+          {
+            opacity: props.animatedValue,
+            transform: [{scale: props.animatedValue}],
+          },
+        ]}
       />
       <Animated.View
-        style={[styles.shine, styles.shine3, {opacity: props.animatedValue}]}
+        style={[
+          styles.shine,
+          styles.shine3,
+          {
+            opacity: props.animatedValue,
+            transform: [{scale: props.animatedValue}, {rotate: '32deg'}],
+          },
+        ]}
       />
       <Animated.View
-        style={[styles.shine, styles.shine4, {opacity: props.animatedValue}]}
+        style={[
+          styles.shine,
+          styles.shine4,
+          {
+            opacity: props.animatedValue,
+            transform: [{scale: props.animatedValue}, {rotate: '62deg'}],
+          },
+        ]}
       />
       <Animated.View
-        style={[styles.shine, styles.shine5, {opacity: props.animatedValue}]}
+        style={[
+          styles.shine,
+          styles.shine5,
+          {
+            opacity: props.animatedValue,
+            transform: [{scale: props.animatedValue}, {rotate: '90deg'}],
+          },
+        ]}
       />
       <Animated.View
-        style={[styles.shine, styles.shine6, {opacity: props.animatedValue}]}
+        style={[
+          styles.shine,
+          styles.shine6,
+          {
+            opacity: props.animatedValue,
+            transform: [{scale: props.animatedValue}, {rotate: '118deg'}],
+          },
+        ]}
       />
     </View>
   );
