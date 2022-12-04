@@ -108,7 +108,7 @@ const HomeScreen = () => {
         refreshControl={
           <RefreshControl
             progressViewOffset={useSafeAreaInsets().top * 0.8}
-            style={{marginBottom: useSafeAreaInsets().top * 0.6}}
+            style={{marginBottom: useSafeAreaInsets().top}}
             refreshing={refreshing}
             onRefresh={onRefresh}
           />
