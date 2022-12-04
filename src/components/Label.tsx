@@ -1,12 +1,12 @@
 import React from 'react';
-import {Text, StyleSheet, Platform, TextStyle, Animated} from 'react-native';
+import {Text, StyleSheet, Platform, Animated} from 'react-native';
 import {CEMENT} from '../utils/Colors';
 
 const isIOS = Platform.OS === 'ios';
 
 interface LabelProps {
   children: string;
-  style?: TextStyle;
+  style?: any;
   bold?: boolean;
   medium?: boolean;
   animated?: boolean;
