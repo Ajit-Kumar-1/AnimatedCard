@@ -22,9 +22,15 @@ const weekData = [64, 47, 55, 62, 60, 64, 62];
 const todayScore = 89;
 const labels = ['We', 'Th', 'Fr', 'Sa', 'Su', 'Mo', 'Tu'];
 
-const animatedValue = new Animated.Value(0);
-const Timing = Animated.timing(animatedValue, {
-  duration: 2000,
+const primaryAnimationValue = new Animated.Value(0);
+const secondaryAnimationValue = new Animated.Value(0);
+const primaryAnimation = Animated.timing(primaryAnimationValue, {
+  duration: 500,
+  useNativeDriver: false,
+  toValue: 1,
+});
+const secondaryAnimation = Animated.timing(secondaryAnimationValue, {
+  duration: 400,
   useNativeDriver: false,
   toValue: 1,
 });
@@ -35,16 +41,17 @@ const HomeScreen = () => {
   const onRefresh = () => {
     setRefreshing(true);
     const timeout = setTimeout(() => {
-      Timing.reset();
-      Timing.start();
+      primaryAnimation.reset();
+      secondaryAnimation.reset();
+      Animated.sequence([primaryAnimation, secondaryAnimation]).start();
       setRefreshing(false);
       clearTimeout(timeout);
     }, 1000);
   };
 
   useEffect(() => {
-    Timing.start();
-    animatedValue.addListener(response =>
+    Animated.sequence([primaryAnimation, secondaryAnimation]).start();
+    primaryAnimationValue.addListener(response =>
       setAnimationListenerValue(response.value),
     );
   }, []);
@@ -75,11 +82,11 @@ const HomeScreen = () => {
               </View>
               <View style={styles.weatherSection}>
                 <Label bold>{`${temperature}°`}</Label>
-                <WeatherIcon animatedValue={animatedValue} />
+                <WeatherIcon animatedValue={secondaryAnimationValue} />
               </View>
             </View>
             <Card
-              animatedValue={animatedValue}
+              animatedValue={primaryAnimationValue}
               animationListenerValue={animationListenerValue}
               barChartData={weekData}
               barChartLabels={labels}
