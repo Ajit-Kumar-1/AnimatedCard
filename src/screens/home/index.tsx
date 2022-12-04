@@ -79,6 +79,13 @@ const HomeScreen = () => {
     );
   }, []);
 
+  useEffect(() => {
+    const timeout = setTimeout(() => {
+      primaryAnimationValue.removeAllListeners();
+      clearTimeout(timeout);
+    }, 1000);
+  }, []);
+
   return (
     <ScreenBackground style={styles.background}>
       <ScrollView
