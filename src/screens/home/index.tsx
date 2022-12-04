@@ -182,8 +182,8 @@ const styles = StyleSheet.create({
     shadowColor: SHADOW,
     shadowOffset: {width: 0, height: 4},
     shadowRadius: 8,
-    shadowOpacity: 0.06,
-    elevation: 6,
+    shadowOpacity: 0.08,
+    elevation: 4,
   },
   welcomeSection: {
     marginHorizontal: 24,
