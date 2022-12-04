@@ -63,12 +63,12 @@ const HomeScreen = () => {
   };
 
   const stopAnimations = () => {
-    primaryAnimation.reset();
-    secondaryAnimation.reset();
     tertiaryAnimation.reset();
-    primaryAnimationValue.removeAllListeners();
-    secondaryAnimationValue.removeAllListeners();
+    secondaryAnimation.reset();
+    primaryAnimation.reset();
     tertiaryAnimationValue.removeAllListeners();
+    secondaryAnimationValue.removeAllListeners();
+    primaryAnimationValue.removeAllListeners();
   };
 
   const onRefresh = () => {
