@@ -74,7 +74,7 @@ const HomeScreen = () => {
               </View>
               <View style={styles.weatherSection}>
                 <Label bold>{`${temperature}°`}</Label>
-                <WeatherIcon />
+                <WeatherIcon animatedValue={animatedValue} />
               </View>
             </View>
             <Card

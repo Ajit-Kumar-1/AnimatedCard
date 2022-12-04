@@ -1,20 +1,39 @@
 import React from 'react';
+import {Animated} from 'react-native';
 import {View, StyleSheet} from 'react-native';
 import Cloud from '../../../../assets/icons/cloudBase.svg';
 import {CEMENT, GOLD} from '../../../utils/Colors';
 
-const WeatherIcon = () => (
-  <View style={styles.container}>
-    <View style={styles.sun} />
-    <Cloud width={18} height={11} style={styles.cloud} />
-    <View style={[styles.shine, styles.shine1]} />
-    <View style={[styles.shine, styles.shine2]} />
-    <View style={[styles.shine, styles.shine3]} />
-    <View style={[styles.shine, styles.shine4]} />
-    <View style={[styles.shine, styles.shine5]} />
-    <View style={[styles.shine, styles.shine6]} />
-  </View>
-);
+interface WeatherIconProps {
+  animatedValue: Animated.Value;
+}
+
+const WeatherIcon = (props: WeatherIconProps) => {
+  return (
+    <View style={styles.container}>
+      <View style={styles.sun} />
+      <Cloud width={18} height={11} style={styles.cloud} />
+      <Animated.View
+        style={[styles.shine, styles.shine1, {opacity: props.animatedValue}]}
+      />
+      <Animated.View
+        style={[styles.shine, styles.shine2, {opacity: props.animatedValue}]}
+      />
+      <Animated.View
+        style={[styles.shine, styles.shine3, {opacity: props.animatedValue}]}
+      />
+      <Animated.View
+        style={[styles.shine, styles.shine4, {opacity: props.animatedValue}]}
+      />
+      <Animated.View
+        style={[styles.shine, styles.shine5, {opacity: props.animatedValue}]}
+      />
+      <Animated.View
+        style={[styles.shine, styles.shine6, {opacity: props.animatedValue}]}
+      />
+    </View>
+  );
+};
 
 const styles = StyleSheet.create({
   container: {
