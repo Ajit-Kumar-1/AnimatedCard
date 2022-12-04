@@ -80,6 +80,7 @@ const HomeScreen = () => {
   return (
     <ScreenBackground style={styles.background}>
       <ScrollView
+        overScrollMode="never"
         contentContainerStyle={styles.scrollView}
         refreshControl={
           <RefreshControl
