@@ -5,15 +5,16 @@ import Cloud from '../../../../assets/icons/cloudBase.svg';
 import {CEMENT, GOLD} from '../../../utils/Colors';
 
 interface WeatherIconProps {
-  animatedValue: Animated.Value;
+  primaryAnimatedValue: Animated.Value;
+  secondaryAnimatedValue: Animated.Value;
 }
 
 const WeatherIcon = (props: WeatherIconProps) => {
-  const sunPosition = props.animatedValue.interpolate({
+  const sunPosition = props.primaryAnimatedValue.interpolate({
     inputRange: [0, 1],
     outputRange: [-3, 1.5],
   });
-  const cloudOpacity = props.animatedValue.interpolate({
+  const cloudOpacity = props.secondaryAnimatedValue.interpolate({
     inputRange: [0, 1],
     outputRange: [styles.cloud.opacity, 1],
   });
@@ -28,8 +29,11 @@ const WeatherIcon = (props: WeatherIconProps) => {
           styles.shine,
           styles.shine1,
           {
-            opacity: props.animatedValue,
-            transform: [{scale: props.animatedValue}, {rotate: '-33deg'}],
+            opacity: props.secondaryAnimatedValue,
+            transform: [
+              {scale: props.secondaryAnimatedValue},
+              {rotate: '-33deg'},
+            ],
           },
         ]}
       />
@@ -38,8 +42,8 @@ const WeatherIcon = (props: WeatherIconProps) => {
           styles.shine,
           styles.shine2,
           {
-            opacity: props.animatedValue,
-            transform: [{scale: props.animatedValue}],
+            opacity: props.secondaryAnimatedValue,
+            transform: [{scale: props.secondaryAnimatedValue}],
           },
         ]}
       />
@@ -48,8 +52,11 @@ const WeatherIcon = (props: WeatherIconProps) => {
           styles.shine,
           styles.shine3,
           {
-            opacity: props.animatedValue,
-            transform: [{scale: props.animatedValue}, {rotate: '32deg'}],
+            opacity: props.secondaryAnimatedValue,
+            transform: [
+              {scale: props.secondaryAnimatedValue},
+              {rotate: '32deg'},
+            ],
           },
         ]}
       />
@@ -58,8 +65,11 @@ const WeatherIcon = (props: WeatherIconProps) => {
           styles.shine,
           styles.shine4,
           {
-            opacity: props.animatedValue,
-            transform: [{scale: props.animatedValue}, {rotate: '62deg'}],
+            opacity: props.secondaryAnimatedValue,
+            transform: [
+              {scale: props.secondaryAnimatedValue},
+              {rotate: '62deg'},
+            ],
           },
         ]}
       />
@@ -68,8 +78,11 @@ const WeatherIcon = (props: WeatherIconProps) => {
           styles.shine,
           styles.shine5,
           {
-            opacity: props.animatedValue,
-            transform: [{scale: props.animatedValue}, {rotate: '90deg'}],
+            opacity: props.secondaryAnimatedValue,
+            transform: [
+              {scale: props.secondaryAnimatedValue},
+              {rotate: '90deg'},
+            ],
           },
         ]}
       />
@@ -78,8 +91,11 @@ const WeatherIcon = (props: WeatherIconProps) => {
           styles.shine,
           styles.shine6,
           {
-            opacity: props.animatedValue,
-            transform: [{scale: props.animatedValue}, {rotate: '118deg'}],
+            opacity: props.secondaryAnimatedValue,
+            transform: [
+              {scale: props.secondaryAnimatedValue},
+              {rotate: '118deg'},
+            ],
           },
         ]}
       />
@@ -112,6 +128,7 @@ const styles = StyleSheet.create({
     height: 2.5,
     borderRadius: 1,
     backgroundColor: CEMENT,
+    opacity: 0,
   },
   shine1: {
     transform: [{rotate: '-33deg'}],

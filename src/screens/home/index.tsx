@@ -114,7 +114,10 @@ const HomeScreen = () => {
               </View>
               <View style={styles.weatherSection}>
                 <Label bold>{`${temperature}°`}</Label>
-                <WeatherIcon animatedValue={secondaryAnimationValue} />
+                <WeatherIcon
+                  primaryAnimatedValue={secondaryAnimationValue}
+                  secondaryAnimatedValue={tertiaryAnimationValue}
+                />
               </View>
             </View>
             <Card
