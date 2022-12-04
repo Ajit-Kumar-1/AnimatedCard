@@ -20,7 +20,7 @@ interface CardProps {
 }
 
 const Card = (props: CardProps) => (
-  <View style={styles.container}>
+  <Animated.View style={[styles.container, {opacity: props.animatedValue}]}>
     <View>
       <View style={styles.titleSection}>
         <Label bold>{HAPPY_SCORE}</Label>
@@ -46,7 +46,7 @@ const Card = (props: CardProps) => (
       animationListenerValue={props.animationListenerValue}
       score={props.pieChartScore}
     />
-  </View>
+  </Animated.View>
 );
 
 const styles = StyleSheet.create({
