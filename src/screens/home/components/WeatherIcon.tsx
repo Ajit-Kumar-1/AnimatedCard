@@ -29,7 +29,6 @@ const WeatherIcon = (props: WeatherIconProps) => {
           styles.shine,
           styles.shine1,
           {
-            opacity: props.secondaryAnimatedValue,
             transform: [
               {scale: props.secondaryAnimatedValue},
               {rotate: '-33deg'},
@@ -42,7 +41,6 @@ const WeatherIcon = (props: WeatherIconProps) => {
           styles.shine,
           styles.shine2,
           {
-            opacity: props.secondaryAnimatedValue,
             transform: [{scale: props.secondaryAnimatedValue}],
           },
         ]}
@@ -52,7 +50,6 @@ const WeatherIcon = (props: WeatherIconProps) => {
           styles.shine,
           styles.shine3,
           {
-            opacity: props.secondaryAnimatedValue,
             transform: [
               {scale: props.secondaryAnimatedValue},
               {rotate: '32deg'},
@@ -65,7 +62,6 @@ const WeatherIcon = (props: WeatherIconProps) => {
           styles.shine,
           styles.shine4,
           {
-            opacity: props.secondaryAnimatedValue,
             transform: [
               {scale: props.secondaryAnimatedValue},
               {rotate: '62deg'},
@@ -78,7 +74,6 @@ const WeatherIcon = (props: WeatherIconProps) => {
           styles.shine,
           styles.shine5,
           {
-            opacity: props.secondaryAnimatedValue,
             transform: [
               {scale: props.secondaryAnimatedValue},
               {rotate: '90deg'},
@@ -91,7 +86,6 @@ const WeatherIcon = (props: WeatherIconProps) => {
           styles.shine,
           styles.shine6,
           {
-            opacity: props.secondaryAnimatedValue,
             transform: [
               {scale: props.secondaryAnimatedValue},
               {rotate: '118deg'},
@@ -128,10 +122,9 @@ const styles = StyleSheet.create({
     height: 2.5,
     borderRadius: 1,
     backgroundColor: CEMENT,
-    opacity: 0,
   },
   shine1: {
-    transform: [{rotate: '-33deg'}],
+    transform: [{rotate: '-33deg', scale: 0}],
     top: -4,
     start: '55%',
   },
