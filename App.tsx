@@ -7,7 +7,12 @@ import ProfileScreen from './src/screens/profile';
 import MyBookingsScreen from './src/screens/my_bookings';
 import BookingScreen from './src/screens/booking';
 import {GOLD, LIGHT_GRAY, CEMENT} from './src/utils/Colors';
-import {HOME, BOOKING, MY_BOOKINGS, PROFILE} from './src/utils/Strings';
+import {
+  HOME,
+  BOOKING,
+  MY_BOOKINGS,
+  PROFILE,
+} from './src/utils/LocalizableStrings';
 import HomeIcon from './assets/icons/home.svg';
 import MyBookingsIcon from './assets/icons/my_bookings.svg';
 import BookingIcon from './assets/icons/booking.svg';

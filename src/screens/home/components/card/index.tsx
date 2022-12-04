@@ -6,7 +6,7 @@ import {
   FIND_OUT_WHY,
   HAPPY_SCORE,
   LIVE_UPPERCASE,
-} from '../../../../utils/Strings';
+} from '../../../../utils/LocalizableStrings';
 import ArrowIcon from './components/ArrowIcon';
 import BarChart from './components/BarChart';
 import PieChart from './components/PieChart';

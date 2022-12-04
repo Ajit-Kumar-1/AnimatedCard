@@ -8,7 +8,7 @@ import {
   RefreshControl,
 } from 'react-native';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
-import {HEREWORKS, HERE_ARE_YOUR_LATEST_UPDATES} from '../../utils/Strings';
+import {HEREWORKS, HERE_ARE_YOUR_LATEST_UPDATES} from '../../utils/LocalizableStrings';
 import Card from './components/card';
 import {SCREEN_BACKGROUND, SHADOW, WHITE} from '../../utils/Colors';
 import WeatherIcon from './components/WeatherIcon';
