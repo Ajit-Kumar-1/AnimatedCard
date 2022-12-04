@@ -33,10 +33,11 @@ const HomeScreen = () => {
   const [score, setScore] = useState(0);
   const onRefresh = () => {
     setRefreshing(true);
-    setTimeout(() => {
+    const timeout = setTimeout(() => {
       Timing.reset();
       Timing.start();
       setRefreshing(false);
+      clearTimeout(timeout);
     }, 1000);
   };
 
